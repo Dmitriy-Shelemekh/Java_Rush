@@ -40,11 +40,20 @@ public class Solution {
         private void printTime() throws InterruptedException {
             //add your code here - добавь код тут
             Thread.sleep(1000);
-            if (seconds == 0 && seconds < 60) minutes++;
-            else if (seconds == 59) {
+            seconds += 1;
+            if (hours == 23 && minutes == 59 && seconds == 60) {
+                hours = 0;
+                minutes = 0;
                 seconds = 0;
-                minutes++;
-            } seconds++;
+            } else if (seconds == 60) {
+                seconds = 0;
+                minutes += 1;
+                if (minutes == 60) {
+                    seconds = 0;
+                    minutes = 0;
+                    hours += 1;
+                }
+            }
 
             if (hours == 0 && minutes == 0 && seconds == 0) {
                 System.out.println(String.format("В г. %s сейчас полночь!", cityName));

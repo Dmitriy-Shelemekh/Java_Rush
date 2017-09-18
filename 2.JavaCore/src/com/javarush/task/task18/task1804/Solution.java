@@ -11,20 +11,21 @@ import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        String path = scanner.nextLine();
-        FileInputStream inputStream = new FileInputStream(path);
-
+        Scanner sc = new Scanner(System.in);
+        String filePath = sc.nextLine();
+        FileInputStream inputStream = new FileInputStream(filePath);
         Map<Integer, Integer> bytesMap = new HashMap<>();
 
         while (inputStream.available() > 0) {
-            int readValue = inputStream.read();
-            if (bytesMap.keySet().contains(readValue)) {
-                bytesMap.put(readValue, bytesMap.get(readValue) + 1);
-            } else bytesMap.put(readValue, 1);
+            int readByte = inputStream.read();
+            if (bytesMap.containsKey(readByte)) {
+                bytesMap.put(readByte, bytesMap.get(readByte) + 1);
+            } else {
+                bytesMap.put(readByte, 1);
+            }
         }
 
-        int minCount = 10;
+        int minCount = 1;
         for (Integer element : bytesMap.values()) {
             if (element < minCount) {
                 minCount = element;
@@ -33,11 +34,10 @@ public class Solution {
 
         for (Map.Entry<Integer, Integer> entry : bytesMap.entrySet()) {
             if (entry.getValue().equals(minCount)) {
-                System.out.println(entry.getKey());
+                System.out.print(entry.getKey() + " ");
             }
         }
 
         inputStream.close();
-        scanner.close();
     }
 }

@@ -17,7 +17,8 @@ public class Solution {
             initialize();
         }
 
-        protected void initialize() {
+        //почему private?
+        private void initialize() {
             System.out.println(f1);
         }
     }

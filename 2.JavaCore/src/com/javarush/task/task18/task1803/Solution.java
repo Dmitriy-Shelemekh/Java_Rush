@@ -1,7 +1,9 @@
 package com.javarush.task.task18.task1803;
 
 import java.io.FileInputStream;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 /* 
 Самые частые байты
@@ -9,16 +11,33 @@ import java.util.*;
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        String path = scanner.nextLine();
-        FileInputStream fileInputStream = new FileInputStream(path);
-        int readByte;
+        Scanner sc = new Scanner(System.in);
+        String filePath = sc.nextLine();
+        FileInputStream inputStream = new FileInputStream(filePath);
         Map<Integer, Integer> bytesMap = new HashMap<>();
-        while (fileInputStream.available() > 0) {
-            readByte = fileInputStream.read();
-            if (bytesMap.keySet().contains(readByte)) {
+
+        while (inputStream.available() > 0) {
+            int readByte = inputStream.read();
+            if (bytesMap.containsKey(readByte)) {
                 bytesMap.put(readByte, bytesMap.get(readByte) + 1);
-            } else bytesMap.put(readByte, 0);
+            } else {
+                bytesMap.put(readByte, 1);
+            }
         }
+
+        int maxCount = 1;
+        for (Integer element : bytesMap.values()) {
+            if (element > maxCount) {
+                maxCount = element;
+            }
+        }
+
+        for (Map.Entry<Integer, Integer> entry : bytesMap.entrySet()) {
+            if (entry.getValue().equals(maxCount)) {
+                System.out.print(entry.getKey() + " ");
+            }
+        }
+
+        inputStream.close();
     }
 }

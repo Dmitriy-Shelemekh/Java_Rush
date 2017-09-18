@@ -1,6 +1,6 @@
 package com.javarush.task.task15.task1510;
 
-/* 
+/*
 Все лишнее - прочь!
 */
 
@@ -25,3 +25,4 @@ public class Solution {
         System.out.println("Double addition");
     }
 }
+

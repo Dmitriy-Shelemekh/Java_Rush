@@ -1,8 +1,6 @@
 package com.javarush.task.task15.task1522;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /* 
 Закрепляем Singleton pattern
@@ -15,21 +13,24 @@ public class Solution {
 
     public static Planet thePlanet;
 
-    //add static block here - добавьте статический блок тут
     static {
-        try {
-            readKeyFromConsoleAndInitPlanet();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        readKeyFromConsoleAndInitPlanet();
     }
 
-    public static void readKeyFromConsoleAndInitPlanet() throws IOException {
+    //add static block here - добавьте статический блок тут
+
+    public static void readKeyFromConsoleAndInitPlanet() {
         // implement step #5 here - реализуйте задание №5 тут
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String planetName = reader.readLine();
-        if (planetName.equals(Planet.SUN)) thePlanet = Sun.getInstance();
-        if (planetName.equals(Planet.EARTH)) thePlanet = Earth.getInstance();
-        if (planetName.equals(Planet.MOON)) thePlanet = Moon.getInstance();
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        if (s.equals(Planet.EARTH)) {
+            thePlanet = Earth.getInstance();
+        } else if (s.equals(Planet.MOON)) {
+            thePlanet = Moon.getInstance();
+        } else if (s.equals(Planet.SUN)) {
+            thePlanet = Sun.getInstance();
+        } else {
+            thePlanet = null;
+        }
     }
 }

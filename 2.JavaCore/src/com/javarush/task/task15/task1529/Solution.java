@@ -12,7 +12,7 @@ public class Solution {
     public static void main(String[] args) {
 
     }
-    
+
     static {
         //add your code here - добавьте код тут
         try {

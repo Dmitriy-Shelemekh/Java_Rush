@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-/* 
+/*
 Парсер реквестов
 */
 
@@ -68,3 +68,4 @@ public class Solution {
         System.out.println("\nString " + value);
     }
 }
+

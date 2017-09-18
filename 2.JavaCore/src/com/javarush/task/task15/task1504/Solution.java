@@ -43,7 +43,7 @@ public class Solution {
         }
     }
 
-    private static class MarkTwainBook extends Book {
+    public static class MarkTwainBook extends Book {
         String title;
 
         public MarkTwainBook(String title) {
@@ -60,11 +60,11 @@ public class Solution {
         }
     }
 
-    private static class AgathaChristieBook extends Book {
+    public static class AgathaChristieBook extends Book {
         String title;
-
         public AgathaChristieBook(String title) {
             super("Agatha Christie");
+            this.title = title;
         }
 
         public AgathaChristieBook getBook() {

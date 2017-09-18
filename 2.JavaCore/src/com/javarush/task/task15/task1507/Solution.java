@@ -71,15 +71,16 @@ public class Solution {
         printMatrix((int) m, (int) n, (Object) value);
     }
 
-//    //9
-//    public static void printMatrix(byte m, byte n, Double value) {
-//        System.out.println("Заполняем объектами String");
-//        printMatrix((int) m, (int) n, (Object) value);
-//    }
-//
-//    //10
-//    public static void printMatrix(short m, byte n, Double value) {
-//        System.out.println("Заполняем объектами String");
-//        printMatrix((int) m, (int) n, (Object) value);
-//    }
+    //9
+    public static void printMatrix(byte m, byte n, Double value) {
+        System.out.println("Заполняем объектами String");
+        printMatrix((int) m, (int) n, (Object) value);
+    }
+
+    //10
+    public static void printMatrix(short m, byte n, Double value) {
+        System.out.println("Заполняем объектами String");
+        printMatrix((int) m, (int) n, (Object) value);
+    }
 }
+
