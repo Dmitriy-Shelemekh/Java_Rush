@@ -1,4 +1,4 @@
-package com.javarush.task.task20.task2001;
+package com.javarush.task.task20.task2005;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -6,13 +6,14 @@ import java.util.Arrays;
 import java.util.List;
 
 /* 
-Читаем и пишем в файл: Human
+Очень странные дела
 */
+
 public class Solution {
     public static void main(String[] args) {
-        //исправьте outputStream/inputStream в соответствии с путем к вашему реальному файлу
+        //исправь outputStream/inputStream в соответствии с путем к твоему реальному файлу
         try {
-            File your_file_name = File.createTempFile("/home/egor/Рабочий стол/robot.txt", null);
+            File your_file_name = new File("e:\\6.txt");
             OutputStream outputStream = new FileOutputStream(your_file_name);
             InputStream inputStream = new FileInputStream(your_file_name);
 
@@ -22,28 +23,21 @@ public class Solution {
 
             Human somePerson = new Human();
             somePerson.load(inputStream);
-
-            if (ivanov == somePerson) System.out.println("Yes");
-            else System.out.println("No");
             //check here that ivanov equals to somePerson - проверьте тут, что ivanov и somePerson равны
+            System.out.println(ivanov.equals(somePerson));
+
             inputStream.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("Oops, something wrong with my file");
         } catch (Exception e) {
-            e.printStackTrace();
             System.out.println("Oops, something wrong with save/load method");
         }
     }
 
-
     public static class Human {
         public String name;
         public List<Asset> assets = new ArrayList<>();
-
-        public Human() {
-        }
 
         @Override
         public boolean equals(Object o) {
@@ -52,9 +46,9 @@ public class Solution {
 
             Human human = (Human) o;
 
-            if (name != null ? !name.equals(human.name) : human.name != null) return false;
-            return assets != null ? assets.equals(human.assets) : human.assets == null;
-
+            if (name == null || !name.equals(human.name)) return false;
+            if (assets == null || !assets.equals(human.assets)) return false;
+            return true;
         }
 
         @Override
@@ -62,6 +56,9 @@ public class Solution {
             int result = name != null ? name.hashCode() : 0;
             result = 31 * result + (assets != null ? assets.hashCode() : 0);
             return result;
+        }
+
+        public Human() {
         }
 
         public Human(String name, Asset... assets) {
@@ -72,28 +69,25 @@ public class Solution {
         }
 
         public void save(OutputStream outputStream) throws Exception {
+            //implement this method - реализуйте этот метод
             PrintWriter printWriter = new PrintWriter(outputStream);
-            printWriter.println(name);
-            int result = assets.size();
-            if (result > 0) {
-                for (Asset a : assets) {
-                    printWriter.println(a.getName());
-                    printWriter.println(a.getPrice());
-                }
+            printWriter.println(this.name);
+            if (this.assets.size() > 0) {
+                for (Asset current : this.assets)
+                    printWriter.println(current.getName());
             }
-            printWriter.flush();
+            printWriter.close();
         }
 
         public void load(InputStream inputStream) throws Exception {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            name = bufferedReader.readLine();
-            while (bufferedReader.ready()) {
-                Asset asset = new Asset(bufferedReader.readLine());
-                asset.setPrice(Double.parseDouble(bufferedReader.readLine()));
-                assets.add(asset);
-            }
+            //implement this method - реализуйте этот метод
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
-
+            this.name = reader.readLine();
+            String assetName;
+            while ((assetName = reader.readLine()) != null)
+                this.assets.add(new Asset(assetName));
+            reader.close();
         }
     }
 }
