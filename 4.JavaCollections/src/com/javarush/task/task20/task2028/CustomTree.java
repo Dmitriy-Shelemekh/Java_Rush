@@ -16,7 +16,9 @@ public class CustomTree extends AbstractList implements Cloneable, Serializable 
         for (int i = 1; i < 16; i++) {
             list.add(String.valueOf(i));
         }
+        //System.out.println("Expected 3, actual is " + ((CustomTree) list).getParent("8"));
         list.remove("5");
+        //System.out.println("Expected null, actual is " + ((CustomTree) list).getParent("11"));
     }
 
     static class Entry<T> implements Serializable {
@@ -51,6 +53,7 @@ public class CustomTree extends AbstractList implements Cloneable, Serializable 
 
     public String get(int index) {
         throw new UnsupportedOperationException();
+        //return null;
     }
 
     public String set(int index, String element) {
@@ -68,15 +71,18 @@ public class CustomTree extends AbstractList implements Cloneable, Serializable 
     @Override
     public boolean addAll(int index, Collection c) {
         throw new UnsupportedOperationException();
+        //return super.addAll(index, c);
     }
 
     @Override
     public List subList(int fromIndex, int toIndex) {
         throw new UnsupportedOperationException();
+        //return super.subList(fromIndex, toIndex);
     }
 
     @Override
     protected void removeRange(int fromIndex, int toIndex) {
         throw new UnsupportedOperationException();
+        //super.removeRange(fromIndex, toIndex);
     }
 }

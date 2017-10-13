@@ -10,20 +10,26 @@ import java.awt.event.KeyEvent;
  */
 public class Tetris {
 
-    private Field field;
-    private Figure figure;
+    private Field field;                //Поле с клетками
+    private Figure figure;              //Фигурка
 
-    private boolean isGameOver;
+    private boolean isGameOver;         //Игра Окончена?
 
     public Tetris(int width, int height) {
         field = new Field(width, height);
         figure = null;
     }
 
+    /**
+     * Геттер переменной field.
+     */
     public Field getField() {
         return field;
     }
 
+    /**
+     * Геттер переменной figure.
+     */
     public Figure getFigure() {
         return figure;
     }
@@ -64,11 +70,12 @@ public class Tetris {
                     figure.downMaximum();
             }
 
-            step();
-            field.print();
-            Thread.sleep(300);
+            step();             //делаем очередной шаг
+            field.print();      //печатаем состояние "поля"
+            Thread.sleep(300);  //пауза 300 миллисекунд - 1/3 секунды
         }
 
+        //Выводим сообщение "Game Over"
         System.out.println("Game Over");
     }
 

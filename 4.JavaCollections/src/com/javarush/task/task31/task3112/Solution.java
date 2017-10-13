@@ -12,9 +12,9 @@ import java.nio.file.Paths;
 */
 public class Solution {
     public static void main(String[] args) throws IOException {
-        //Path passwords = downloadFile("http://placehold.it/100x50/88cc00.png", Paths.get("e:\\a.txt"));
-        Path passwords = downloadFile("https://yastatic.net/morda-logo/i/citylogos/yandex19-logo-ru.png",Paths.get("E:/"));
-        //Path passwords = downloadFile("https://www.amigo.com/ship/secretPassword.txt", Paths.get("E:\\"));
+        Path passwords = downloadFile("http://placehold.it/100x50/88cc00.png", Paths.get("C:\\a.txt"));
+//        Path passwords = downloadFile("https://yastatic.net/morda-logo/i/citylogos/yandex19-logo-ru.png",Paths.get("C:/"));
+//        Path passwords = downloadFile("https://www.amigo.com/ship/secretPassword.txt", Paths.get("C:\\"));
 
         for (String line : Files.readAllLines(passwords)) {
             System.out.println(line);
