@@ -12,8 +12,8 @@ import java.nio.file.Paths;
 */
 public class Solution {
     public static void main(String[] args) throws IOException {
-        Path passwords = downloadFile("http://placehold.it/100x50/88cc00.png", Paths.get("C:\\a.txt"));
-//        Path passwords = downloadFile("https://yastatic.net/morda-logo/i/citylogos/yandex19-logo-ru.png",Paths.get("C:/"));
+//        Path passwords = downloadFile("http://placehold.it/100x50/88cc00.png", Paths.get("C:\\a.txt"));
+        Path passwords = downloadFile("https://yastatic.net/morda-logo/i/citylogos/yandex19-logo-ru.png",Paths.get("C:/"));
 //        Path passwords = downloadFile("https://www.amigo.com/ship/secretPassword.txt", Paths.get("C:\\"));
 
         for (String line : Files.readAllLines(passwords)) {
@@ -26,13 +26,13 @@ public class Solution {
         URL url=new URL(urlString);
         InputStream inputStream=url.openStream();
 
-        Path tmp=Files.createTempFile("temp-",".tmp");
-        Files.copy(inputStream,tmp);
+        Path tempFile=Files.createTempFile("temp-",".tmp");
+        Files.copy(inputStream,tempFile);
 
-        String fieName=urlString.substring(urlString.lastIndexOf("/"));
-        Path destPath=Paths.get(downloadDirectory.toString(), fieName);
-        Files.move(tmp,destPath);
+        String fileName = urlString.substring(urlString.lastIndexOf("/"));
+        Path dowloadedFile = Paths.get(downloadDirectory + "/" + fileName);
+        Files.move(tempFile, dowloadedFile);
 
-        return destPath;
+        return dowloadedFile;
     }
 }
