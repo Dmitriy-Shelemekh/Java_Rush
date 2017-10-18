@@ -1,9 +1,6 @@
 package com.javarush.task.task22.task2213;
 
 /**
- * Created by Dmitry Shelemekh on 10.10.2017.
- */
-/**
  * Клсс FigureFactory отвечает за создание объектов-фигурок.
  */
 public class FigureFactory {

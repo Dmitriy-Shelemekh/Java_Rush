@@ -1,8 +1,5 @@
 package com.javarush.task.task22.task2213;
 
-/**
- * Created by Dmitry Shelemekh on 10.10.2017.
- */
 import java.util.ArrayList;
 
 /**
@@ -80,6 +77,7 @@ public class Field {
             }
         }
 
+
         //Выводим "нарисованное" на экран, но начинаем с "границы кадра".
         System.out.println("---------------------------------------------------------------------------\n");
 
@@ -97,6 +95,7 @@ public class Field {
             }
             System.out.println();
         }
+
 
         System.out.println();
         System.out.println();

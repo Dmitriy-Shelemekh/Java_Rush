@@ -1,8 +1,5 @@
 package com.javarush.task.task22.task2213;
 
-/**
- * Created by Dmitry Shelemekh on 10.10.2017.
- */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.FocusEvent;
@@ -69,3 +66,4 @@ public class KeyboardObserver extends Thread {
         return keyEvents.poll();
     }
 }
+

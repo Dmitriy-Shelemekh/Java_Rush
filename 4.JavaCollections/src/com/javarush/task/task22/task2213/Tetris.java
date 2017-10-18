@@ -1,8 +1,5 @@
 package com.javarush.task.task22.task2213;
 
-/**
- * Created by Dmitry Shelemekh on 10.10.2017.
- */
 import java.awt.event.KeyEvent;
 
 /**
