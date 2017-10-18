@@ -2,7 +2,6 @@ package com.javarush.task.task34.task3411;
 
 /* 
 Ханойские башни
-https://acmp.ru/article.asp?id_sec=1&id_text=1333
 */
 
 import java.util.Stack;

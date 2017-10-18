@@ -7,23 +7,21 @@ package com.javarush.task.task25.task2515;
  * Класс для бомбы.
  */
 public class Bomb extends BaseObject {
-    public Bomb(double x, double y) {
-        super(x, y, 1);
+    private int size;
+    private int y;
+    private int x;
+
+    public Bomb(double x, double y, double radius) {
+        super(x, y, radius);
     }
 
-    /**
-     * Отрисовываем себя на холсте.
-     */
     @Override
-    public void draw(Canvas canvas) {
-        canvas.setPoint(x, y, 'B');
+    void move() {
+
     }
 
-    /**
-     * Двигаем себя вниз на один ход.
-     */
     @Override
-    public void move() {
-        y++;
+    void draw() {
+
     }
 }

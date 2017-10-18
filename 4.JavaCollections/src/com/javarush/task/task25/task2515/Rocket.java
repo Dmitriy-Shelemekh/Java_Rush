@@ -4,24 +4,22 @@ package com.javarush.task.task25.task2515;
  * Created by Dmitry Shelemekh on 11.10.2017.
  */
 public class Rocket extends BaseObject {
+    private int size;
+    private int y;
+    private int x;
 
-    public Rocket(double x, double y) {
-        super(x, y, 1);
+    public Rocket(double x, double y, double radius) {
+        super(x,y,radius);
+        setRadius(radius);
     }
 
-    /**
-     * Метод рисует свой объект на "канвасе".
-     */
     @Override
-    public void draw(Canvas canvas) {
-        canvas.setPoint(x, y, 'R');
+    void move() {
+
     }
 
-    /**
-     * Двигаем себя вверх на один ход.
-     */
     @Override
-    public void move() {
-        y--;
+    void draw() {
+
     }
 }
