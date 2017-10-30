@@ -1,8 +1,6 @@
 package com.javarush.task.task25.task2515;
 
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Dmitry Shelemekh on 11.10.2017.
@@ -26,9 +24,14 @@ public class Space {
         this.height = height;
     }
 
-    public void run(){}
-    public void draw(){}
-    public void sleep(int ms){}
+    public void run() {
+    }
+
+    public void draw() {
+    }
+
+    public void sleep(int ms) {
+    }
 
     public void setShip(SpaceShip ship) {
         this.ship = ship;

@@ -1,8 +1,6 @@
 package com.javarush.task.task25.task2515;
 
-/**
- * Created by Dmitry Shelemekh on 12.10.2017.
- */
+
 public class Canvas {
     private int width;
     private int height;

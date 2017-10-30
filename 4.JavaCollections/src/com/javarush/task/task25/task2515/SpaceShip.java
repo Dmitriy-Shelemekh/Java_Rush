@@ -10,12 +10,12 @@ public class SpaceShip extends BaseObject{
     }
 
     @Override
-    void move() {
+    public void move() {
 
     }
 
-    @Override
-    void draw() {
-
-    }
+//    @Override
+//    public void draw() {
+//
+//    }
 }

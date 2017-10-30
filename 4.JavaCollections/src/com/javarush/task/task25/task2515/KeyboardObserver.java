@@ -1,6 +1,5 @@
 package com.javarush.task.task25.task2515;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -11,9 +10,6 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
-/**
- * Created by Dmitry Shelemekh on 11.10.2017.
- */
 public class KeyboardObserver extends Thread {
     private Queue<KeyEvent> keyEvents = new ArrayBlockingQueue<KeyEvent>(100);
 
@@ -71,3 +67,4 @@ public class KeyboardObserver extends Thread {
         return keyEvents.poll();
     }
 }
+
