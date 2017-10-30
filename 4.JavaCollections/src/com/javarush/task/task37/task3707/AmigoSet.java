@@ -1,14 +1,14 @@
 package com.javarush.task.task37.task3707;
 
+/**
+ * Created by Dmitry Shelemekh on 13.10.2017.
+ */
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.*;
-
-/**
- * Created by Dmitry Shelemekh on 13.10.2017.
- */
 
 public class AmigoSet<E> extends AbstractSet<E> implements Serializable, Cloneable, Set<E> {
     private static final Object PRESENT = new Object();
@@ -41,6 +41,7 @@ public class AmigoSet<E> extends AbstractSet<E> implements Serializable, Cloneab
         }
 
     }
+
 
     @Override
     public Object clone() {

@@ -1,10 +1,11 @@
 package com.javarush.task.task34.task3411;
 
-/* 
+import java.util.Stack;
+
+/*
 Ханойские башни
 */
 
-import java.util.Stack;
 public class Solution {
     public static Stack<Integer> first     = new Stack<>();
     public static Stack<Integer> second    = new Stack<>();

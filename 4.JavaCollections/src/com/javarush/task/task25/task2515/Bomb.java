@@ -1,27 +1,26 @@
 package com.javarush.task.task25.task2515;
 
 /**
- * Created by Dmitry Shelemekh on 11.10.2017.
- */
-/**
  * Класс для бомбы.
  */
 public class Bomb extends BaseObject {
-//    private int size;
-//    private int y;
-//    private int x;
-
-    public Bomb(double x, double y, double radius) {
-        super(x, y, radius);
+    public Bomb(double x, double y) {
+        super(x, y, 1);
     }
 
+    /**
+     * Отрисовываем себя на холсте.
+     */
+    @Override
+    public void draw(Canvas canvas) {
+        canvas.setPoint(x, y, 'B');
+    }
+
+    /**
+     * Двигаем себя вниз на один ход.
+     */
     @Override
     public void move() {
-
+        y++;
     }
-
-//    @Override
-//    public void draw() {
-//
-//    }
 }
