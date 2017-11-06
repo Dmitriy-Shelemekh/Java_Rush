@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 
 /*
 Рекурсия для мат. выражения
+https://help.javarush.ru/questions/105988/level34-lesson02-home01-%D1%87%D1%82%D0%BE-%D0%BD%D0%B5-%D1%82%D0%B0%D0%BA
 */
 
 public class Solution {
@@ -14,11 +15,11 @@ public class Solution {
         solution.recursion("sin(2*(-5+1.5*4)+28)", 0); //expected output 0.5 6
 
         String s;
-        s="(-2)^(-2)";
+        s = "(-2)^(-2)";
         System.out.print(s + " expected output 0.25 3 actually ");
         solution.recursion(s, 0);
 
-        s="89-cos(180)^2";
+        s = "89-cos(180)^2";
         System.out.print(s + " expected output 88 3 actually ");
         solution.recursion(s, 0);
 
@@ -150,72 +151,68 @@ public class Solution {
         System.out.print(s + " expected output 0.3 1 actually ");
         solution.recursion(s, 0);
     }
+
     public void recursion(final String expression, int countOperation) {
         //implement
         Locale.setDefault(Locale.ENGLISH);
-        String s=expression;
-        String s1=expression;
-        String fulls1=expression;
-        Integer count=countOperation;
-        if(count==0)
-            count+=(s.split("\\^").length - 1)+(s.split("\\/").length-1)+(s.split("\\*").length-1)
-                    +(s.split("\\+").length-1)+(s.split("\\-").length-1)+(s.split("cos").length-1)+(s.split("sin").length-1)+(s.split("tan").length-1);
-        int n1=expression.lastIndexOf("(");
-        if(n1>=0)
-        {
+        String s = expression;
+        String s1 = expression;
+        String fulls1 = expression;
+        Integer count = countOperation;
+        if (count == 0)
+            count += (s.split("\\^").length - 1) + (s.split("\\/").length - 1) + (s.split("\\*").length - 1)
+                    + (s.split("\\+").length - 1) + (s.split("\\-").length - 1) + (s.split("cos").length - 1) + (s.split("sin").length - 1) + (s.split("tan").length - 1);
+        int n1 = expression.lastIndexOf("(");
+        if (n1 >= 0) {
             String sp = expression.substring(n1);
-            fulls1=sp.substring(0, sp.indexOf(")")+1);
-            s1=sp.substring(1,sp.indexOf(")"));
+            fulls1 = sp.substring(0, sp.indexOf(")") + 1);
+            s1 = sp.substring(1, sp.indexOf(")"));
         }
-        int indS1=s.indexOf(fulls1);
-        String s2=s1.trim();
+        int indS1 = s.indexOf(fulls1);
+        String s2 = s1.trim();
         s2 = s2.replaceAll("-", "+-");
-        s2=calculate(s2, "^");
-        s2=calculate(s2, "/");
-        s2=calculate(s2, "*");
+        s2 = calculate(s2, "^");
+        s2 = calculate(s2, "/");
+        s2 = calculate(s2, "*");
         s2 = calculate(s2, "+");
-        s2= new DecimalFormat("#.##").format(Double.parseDouble(s2));
-        s2=s2.replaceAll(",",".");
-        if(s2.endsWith(".0"))
-            s2=String.valueOf(Math.round(Double.parseDouble(s2)));
-        s=s.replace(fulls1, s2);
-        int indS2=s.indexOf(s2);
-        String sub=s.substring(0, indS2);
-        String sub2=sub.trim();
-        if(sub2.length()>3)
-            sub2=sub2.substring(sub2.length()-3,sub2.length());
-        String r=null;
-        switch(sub2)
-        {
+        s2 = new DecimalFormat("#.##").format(Double.parseDouble(s2));
+        s2 = s2.replaceAll(",", ".");
+        if (s2.endsWith(".0"))
+            s2 = String.valueOf(Math.round(Double.parseDouble(s2)));
+        s = s.replace(fulls1, s2);
+        int indS2 = s.indexOf(s2);
+        String sub = s.substring(0, indS2);
+        String sub2 = sub.trim();
+        if (sub2.length() > 3)
+            sub2 = sub2.substring(sub2.length() - 3, sub2.length());
+        String r = null;
+        switch (sub2) {
             case "sin":
-                r=new DecimalFormat("#.##").format(Math.sin(Math.toRadians(Double.parseDouble(s2))));
-                r=r.replaceAll(",",".");
+                r = new DecimalFormat("#.##").format(Math.sin(Math.toRadians(Double.parseDouble(s2))));
+                r = r.replaceAll(",", ".");
                 break;
             case "cos":
-                r=new DecimalFormat("#.##").format((Math.cos(Math.toRadians(Double.parseDouble(s2)))));
-                r=r.replaceAll(",", ".");
+                r = new DecimalFormat("#.##").format((Math.cos(Math.toRadians(Double.parseDouble(s2)))));
+                r = r.replaceAll(",", ".");
                 break;
             case "tan":
-                r=new DecimalFormat("#.##").format((Math.tan(Math.toRadians(Double.parseDouble(s2)))));
-                r=r.replaceAll(",", ".");
+                r = new DecimalFormat("#.##").format((Math.tan(Math.toRadians(Double.parseDouble(s2)))));
+                r = r.replaceAll(",", ".");
                 break;
         }
-        String z=null;
-        if(r!=null)
-        {
-            z=s.substring(sub.lastIndexOf(sub2),indS2+s2.length());
-            s=s.replace(z,r);
+        String z = null;
+        if (r != null) {
+            z = s.substring(sub.lastIndexOf(sub2), indS2 + s2.length());
+            s = s.replace(z, r);
         }
-        if(s.contains("^"))
-        {
-            if(z!=null)
-            {
-                s2=r;
+        if (s.contains("^")) {
+            if (z != null) {
+                s2 = r;
             }
-            indS2=s.indexOf(s2);
-            sub=s.substring(indS2 + s2.length(), s.length());
-            sub2=sub.trim();
-            if(sub2.startsWith("^")&&(expression.indexOf("^")>indS1)) {
+            indS2 = s.indexOf(s2);
+            sub = s.substring(indS2 + s2.length(), s.length());
+            sub2 = sub.trim();
+            if (sub2.startsWith("^") && (expression.indexOf("^") > indS1)) {
                 String[] ms = sub2.split("\\^");
                 StringTokenizer stt2 = new StringTokenizer(ms[1], "+/*^()");
                 String st2 = null;
@@ -233,100 +230,91 @@ public class Solution {
                     d2 = 0;
                 }
                 String res = new DecimalFormat("#.##").format(Math.pow(d1, d2));
-                res=res.replaceAll(",",".");
-                s=s.replace(s2 + sub.substring(0, sub.indexOf(st2) + st2.length()), res);
+                res = res.replaceAll(",", ".");
+                s = s.replace(s2 + sub.substring(0, sub.indexOf(st2) + st2.length()), res);
             }
         }
         //System.out.println();
         //System.out.println(s);
-        s=s.replace("--", "+");
-        if(s.contains("^")||s.contains("/")||s.contains("*")||s.contains("+")||((s.lastIndexOf("-")>0)&&(!s.contains("E-")))
-                ||(s.contains("E-")&&(s.split("-").length!=2)))
-        {
-            s=s.replace("+-","-");
-            recursion(s,count);
-        }
-        else
-        {
-            s=new DecimalFormat("#.##").format(Double.parseDouble(s));
-            s=s.replaceAll(",",".");
-            if(s.endsWith(".0"))
-                s=String.valueOf(Math.round(Double.parseDouble(s)));
+        s = s.replace("--", "+");
+        if (s.contains("^") || s.contains("/") || s.contains("*") || s.contains("+") || ((s.lastIndexOf("-") > 0) && (!s.contains("E-")))
+                || (s.contains("E-") && (s.split("-").length != 2))) {
+            s = s.replace("+-", "-");
+            recursion(s, count);
+        } else {
+            s = new DecimalFormat("#.##").format(Double.parseDouble(s));
+            s = s.replaceAll(",", ".");
+            if (s.endsWith(".0"))
+                s = String.valueOf(Math.round(Double.parseDouble(s)));
             System.out.println(s + " " + count);
         }
     }
-    private String calculate(String s2,String op)
-    {
+
+    private String calculate(String s2, String op) {
         Locale.setDefault(Locale.ENGLISH);
-        int i=s2.indexOf(op);
-        if(op.equals("+"))
-        {
-            if(i==0) {
-                s2=s2.substring(1);
+        int i = s2.indexOf(op);
+        if (op.equals("+")) {
+            if (i == 0) {
+                s2 = s2.substring(1);
                 i = s2.indexOf(op);
             }
         }
-        while(i>0)
-        {
-            String[] ms=s2.split(op.replace(op,"\\"+op));
-            StringTokenizer stt1=new StringTokenizer(ms[0],"+/*^");
-            String st1=null;
-            while(stt1.hasMoreTokens())
-                st1=stt1.nextToken();
-            StringTokenizer stt2=new StringTokenizer(ms[1],"+/*^");
-            String st2=null;
-            st2=stt2.nextToken();
-            double d1=0;
+        while (i > 0) {
+            String[] ms = s2.split(op.replace(op, "\\" + op));
+            StringTokenizer stt1 = new StringTokenizer(ms[0], "+/*^");
+            String st1 = null;
+            while (stt1.hasMoreTokens())
+                st1 = stt1.nextToken();
+            StringTokenizer stt2 = new StringTokenizer(ms[1], "+/*^");
+            String st2 = null;
+            st2 = stt2.nextToken();
+            double d1 = 0;
             try {
                 d1 = Double.parseDouble(st1);
+            } catch (NumberFormatException e1) {
+                d1 = 0;
             }
-            catch(NumberFormatException e1)
-            {
-                d1=0;
-            }
-            double d2=0;
+            double d2 = 0;
             try {
                 d2 = Double.parseDouble(st2);
-            }
-            catch(NumberFormatException e1)
-            {
+            } catch (NumberFormatException e1) {
                 d2 = 0;
             }
-            String res=null;
-            switch(op) {
+            String res = null;
+            switch (op) {
                 case "^":
-                    if(d1<0) {
+                    if (d1 < 0) {
                         d1 = -d1;
-                        st1=st1.substring(1);
+                        st1 = st1.substring(1);
                     }
                     res = new DecimalFormat("#.##").format(Math.pow(d1, d2));
-                    res=res.replaceAll(",",".");
+                    res = res.replaceAll(",", ".");
                     break;
                 case "/":
-                    res =  new DecimalFormat("#.##").format(d1 / d2);
-                    res=res.replaceAll(",", ".");
+                    res = new DecimalFormat("#.##").format(d1 / d2);
+                    res = res.replaceAll(",", ".");
                     break;
                 case "*":
-                    res =  new DecimalFormat("#.##").format(d1 * d2);
-                    res=res.replaceAll(",", ".");
+                    res = new DecimalFormat("#.##").format(d1 * d2);
+                    res = res.replaceAll(",", ".");
                     break;
                 case "+":
-                    res=  new DecimalFormat("#.##").format(d1 + d2);
-                    res=res.replaceAll(",",".");
+                    res = new DecimalFormat("#.##").format(d1 + d2);
+                    res = res.replaceAll(",", ".");
                     break;
             }
-            String zs=st1 + op + st2;
-            if(!s2.contains(zs))
-            {
-                st1=st1.replace("-", "+-");
-                st2=st2.replace("-","+-");
+            String zs = st1 + op + st2;
+            if (!s2.contains(zs)) {
+                st1 = st1.replace("-", "+-");
+                st2 = st2.replace("-", "+-");
             }
-            s2=s2.replace(st1 + op + st2,res);
-            s2=s2.replace("-+","-");
-            i=s2.indexOf(op);
+            s2 = s2.replace(st1 + op + st2, res);
+            s2 = s2.replace("-+", "-");
+            i = s2.indexOf(op);
         }
         return s2;
     }
+
     public Solution() {
         //don't delete
     }
