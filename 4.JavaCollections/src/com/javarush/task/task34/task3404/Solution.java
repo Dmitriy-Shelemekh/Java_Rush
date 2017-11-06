@@ -161,7 +161,8 @@ public class Solution {
         Integer count = countOperation;
         if (count == 0)
             count += (s.split("\\^").length - 1) + (s.split("\\/").length - 1) + (s.split("\\*").length - 1)
-                    + (s.split("\\+").length - 1) + (s.split("\\-").length - 1) + (s.split("cos").length - 1) + (s.split("sin").length - 1) + (s.split("tan").length - 1);
+                    + (s.split("\\+").length - 1) + (s.split("\\-").length - 1) + (s.split("cos").length - 1)
+                    + (s.split("sin").length - 1) + (s.split("tan").length - 1);
         int n1 = expression.lastIndexOf("(");
         if (n1 >= 0) {
             String sp = expression.substring(n1);
