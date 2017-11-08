@@ -9,9 +9,17 @@ public class Horse {
     double speed;
     double distance;
 
-    public void move() {}
+    public void move() {
+        this.distance += (speed * Math.random());
+    }
 
-    public void print() {}
+    public void print() {
+        int dst = (int) Math.floor(this.distance);
+        for (int i = 0; i < dst; i++) {
+            System.out.print(".");
+        }
+        System.out.println(this.getName());
+    }
 
     public String getName() {
         return name;
