@@ -3,13 +3,11 @@ package com.javarush.task.task23.task2312;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Основной класс программы.
  */
 public class Room {
-
     private int width;
     private int height;
     private Snake snake;
@@ -102,7 +100,7 @@ public class Room {
         int[][] matrix = new int[height][width];
 
         //Рисуем все кусочки змеи
-        List<SnakeSection> sections = new ArrayList<SnakeSection>(snake.getSections());
+        ArrayList<SnakeSection> sections = new ArrayList<SnakeSection>(snake.getSections());
         for (SnakeSection snakeSection : sections) {
             matrix[snakeSection.getY()][snakeSection.getX()] = 1;
         }
@@ -152,7 +150,6 @@ public class Room {
         game.createMouse();
         game.run();
     }
-
 
     private int initialDelay = 520;
     private int delayStep = 20;
