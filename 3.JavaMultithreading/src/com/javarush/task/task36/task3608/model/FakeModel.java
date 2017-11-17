@@ -27,6 +27,11 @@ public class FakeModel implements Model {
     }
 
     @Override
+    public void changeUserData(String name, long id, int level) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public ModelData getModelData() {
         return this.modelData;
     }
