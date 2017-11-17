@@ -22,6 +22,11 @@ public class FakeModel implements Model {
     }
 
     @Override
+    public void deleteUserById(long id) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public ModelData getModelData() {
         return this.modelData;
     }
