@@ -50,11 +50,6 @@ public class Solution implements Action {
         this.param = param;
     }
 
-    @Override
-    public void someAction() {
-        solutionAction.someAction();
-    }
-
     /**
      * 5
      * 4
@@ -77,5 +72,10 @@ public class Solution implements Action {
         solution = new Solution(-1);
         solution.someAction();
         System.out.println("Count of created Action objects is " + countActionObjects);
+    }
+
+    @Override
+    public void someAction() {
+        solutionAction.someAction();
     }
 }

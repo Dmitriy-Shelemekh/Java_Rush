@@ -20,6 +20,30 @@ public class Solution {
 
     }
 
+    public static interface RowItem {
+        String getCountryCode();        //example UA
+
+        String getCompany();            //example JavaRush Ltd.
+
+        String getContactFirstName();   //example Ivan
+
+        String getContactLastName();    //example Ivanov
+
+        String getDialString();         //example callto://+380501234567
+    }
+
+    public static interface Customer {
+        String getCompanyName();        //example JavaRush Ltd.
+
+        String getCountryName();        //example Ukraine
+    }
+
+    public static interface Contact {
+        String getName();               //example Ivanov, Ivan
+
+        String getPhoneNumber();        //example +38(050)123-45-67
+    }
+
     public static class DataAdapter implements RowItem {
         private Customer customer;
         private Contact contact;
@@ -61,29 +85,5 @@ public class Solution {
             String tel = "callto://" + contact.getPhoneNumber().replaceAll("[()-]", "");
             return tel;
         }
-    }
-
-    public static interface RowItem {
-        String getCountryCode();        //example UA
-
-        String getCompany();            //example JavaRush Ltd.
-
-        String getContactFirstName();   //example Ivan
-
-        String getContactLastName();    //example Ivanov
-
-        String getDialString();         //example callto://+380501234567
-    }
-
-    public static interface Customer {
-        String getCompanyName();        //example JavaRush Ltd.
-
-        String getCountryName();        //example Ukraine
-    }
-
-    public static interface Contact {
-        String getName();               //example Ivanov, Ivan
-
-        String getPhoneNumber();        //example +38(050)123-45-67
     }
 }

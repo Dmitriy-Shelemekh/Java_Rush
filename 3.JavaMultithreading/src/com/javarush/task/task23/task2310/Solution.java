@@ -10,6 +10,10 @@ public class Solution {
         this.name = name;
     }
 
+    public static void main(String[] args) {
+        new Solution("main").sout();
+    }
+
     public String getName() {
         return name;
     }
@@ -20,9 +24,5 @@ public class Solution {
                 System.out.println(getName());//А если без расширения метода? то: super.getName() !!!
             }
         }.printName();
-    }
-
-    public static void main(String[] args) {
-        new Solution("main").sout();
     }
 }

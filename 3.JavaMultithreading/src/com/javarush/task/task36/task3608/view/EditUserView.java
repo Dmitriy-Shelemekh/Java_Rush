@@ -6,11 +6,10 @@ import com.javarush.task.task36.task3608.model.ModelData;
 /**
  * Created by Dmitriy Shelemekh on 16.11.2017.
  */
-public class EditUserView implements View{
+public class EditUserView implements View {
     private Controller controller;
 
-    public void fireEventUserChanged(String name, long id, int level)
-    {
+    public void fireEventUserChanged(String name, long id, int level) {
         controller.onUserChange(name, id, level);
     }
 

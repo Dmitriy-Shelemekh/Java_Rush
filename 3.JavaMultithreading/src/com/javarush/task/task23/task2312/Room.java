@@ -8,10 +8,13 @@ import java.util.ArrayList;
  * Основной класс программы.
  */
 public class Room {
+    public static Room game;
     private int width;
     private int height;
     private Snake snake;
     private Mouse mouse;
+    private int initialDelay = 520;
+    private int delayStep = 20;
 
     public Room(int width, int height, Snake snake) {
         this.width = width;
@@ -20,36 +23,43 @@ public class Room {
         game = this;
     }
 
+    public static void main(String[] args) {
+        game = new Room(20, 20, new Snake(10, 10));
+        game.snake.setDirection(SnakeDirection.DOWN);
+        game.createMouse();
+        game.run();
+    }
+
     public Snake getSnake() {
         return snake;
-    }
-
-    public Mouse getMouse() {
-        return mouse;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
     }
 
     public void setSnake(Snake snake) {
         this.snake = snake;
     }
 
+    public Mouse getMouse() {
+        return mouse;
+    }
+
     public void setMouse(Mouse mouse) {
         this.mouse = mouse;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     /**
@@ -140,19 +150,6 @@ public class Room {
 
         mouse = new Mouse(x, y);
     }
-
-
-    public static Room game;
-
-    public static void main(String[] args) {
-        game = new Room(20, 20, new Snake(10, 10));
-        game.snake.setDirection(SnakeDirection.DOWN);
-        game.createMouse();
-        game.run();
-    }
-
-    private int initialDelay = 520;
-    private int delayStep = 20;
 
     /**
      * Программа делает паузу, длинна которой зависит от длинны змеи.

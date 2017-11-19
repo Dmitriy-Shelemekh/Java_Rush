@@ -12,8 +12,8 @@ import java.util.*;
 
 public class AmigoSet<E> extends AbstractSet<E> implements Serializable, Cloneable, Set<E> {
     private static final Object PRESENT = new Object();
-    private transient HashMap<E, Object> map;
     private static final long serialVersionUID = 4243607099059311858L;
+    private transient HashMap<E, Object> map;
 
     public AmigoSet() {
         map = new HashMap<>();

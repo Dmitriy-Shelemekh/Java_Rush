@@ -3,24 +3,12 @@ package com.javarush.task.task34.task3406;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* 
+
+/*
 Слабые ссылки
 */
 public class Solution {
     public static Helper helper = new Helper();
-
-    public static class Monkey {
-        private String name;
-
-        public Monkey(String name) {
-            this.name = name;
-        }
-
-        protected void finalize() {
-            Helper.isFinalized = true;
-            System.out.format("Bye-Bye, %s!\n", name);
-        }
-    }
 
     public static void main(String args[]) throws InterruptedException {
         helper.startTime();
@@ -28,7 +16,7 @@ public class Solution {
         Monkey monkey = new Monkey("Simka");
 
         //Add reference here
-        WeakReference<Monkey> reference = new WeakReference (monkey);
+        WeakReference<Monkey> reference = new WeakReference(monkey);
 
         helper.callGC();
 
@@ -41,6 +29,19 @@ public class Solution {
             System.out.println("Finalized");
 
         helper.finish();
+    }
+
+    public static class Monkey {
+        private String name;
+
+        public Monkey(String name) {
+            this.name = name;
+        }
+
+        protected void finalize() {
+            Helper.isFinalized = true;
+            System.out.format("Bye-Bye, %s!\n", name);
+        }
     }
 
     public static class Helper {

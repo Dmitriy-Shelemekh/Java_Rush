@@ -1,7 +1,9 @@
 package com.javarush.task.task18.task1805;
 
 import java.io.FileInputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 
 /* 
 Сортировка байт
@@ -23,7 +25,7 @@ public class Solution {
 
         Collections.sort(bytesList);
 
-        for(Integer element : bytesList){
+        for (Integer element : bytesList) {
             System.out.print(element + " ");
         }
 

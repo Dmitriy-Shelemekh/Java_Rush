@@ -81,23 +81,6 @@ public class Solution {
         });
     }
 
-    public static class Stock extends HashMap {
-        public Stock(String name, String symbol, double open, double last) {
-            put("name", name);
-            put("symbol", symbol);
-            put("open", open);
-            put("last", last);
-            put("date", getRandomDate(2020));
-        }
-
-        public Stock(String name, String symbol, double change, Date date) {
-            put("name", name);
-            put("symbol", symbol);
-            put("date", date);
-            put("change", change);
-        }
-    }
-
     public static List<Stock> getStocks() {
         List<Stock> stocks = new ArrayList();
 
@@ -129,6 +112,23 @@ public class Solution {
         int day = (int) (Math.random() * 28);
         GregorianCalendar calendar = new GregorianCalendar(year, month, day);
         return calendar.getTime();
+    }
+
+    public static class Stock extends HashMap {
+        public Stock(String name, String symbol, double open, double last) {
+            put("name", name);
+            put("symbol", symbol);
+            put("open", open);
+            put("last", last);
+            put("date", getRandomDate(2020));
+        }
+
+        public Stock(String name, String symbol, double change, Date date) {
+            put("name", name);
+            put("symbol", symbol);
+            put("date", date);
+            put("change", change);
+        }
     }
 }
 

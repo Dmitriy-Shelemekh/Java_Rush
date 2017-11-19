@@ -18,7 +18,7 @@ public class Solution {
                     Files.isDirectory(filePath), Files.isWritable(filePath));
 
         } catch (Exception e) {
-            fileData = new NullFileData (e);
+            fileData = new NullFileData(e);
         }
     }
 

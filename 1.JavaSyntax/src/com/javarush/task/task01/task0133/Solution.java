@@ -11,7 +11,7 @@ public class Solution {
 
     public static int getCountSecondsPassedInCurrentHour(int seconds) {
         //напишите тут ваш код
-        int hour = seconds/3600;
-        return seconds - (3600 *hour);
+        int hour = seconds / 3600;
+        return seconds - (3600 * hour);
     }
 }

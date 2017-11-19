@@ -25,6 +25,10 @@ public class Solution {
         void move();
     }
 
+    static interface Drawable {
+        void draw();
+    }
+
     static class Circle implements Movable {
 
         public void draw() {
@@ -35,10 +39,6 @@ public class Solution {
             System.out.println("can be moved");
         }
 
-    }
-
-    static interface Drawable {
-        void draw();
     }
 
     static class Rectangle implements Drawable {

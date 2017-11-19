@@ -16,6 +16,10 @@ public abstract class ApplicationContext<GenericsBean extends Bean> {
         parseAllClassesAndInterfaces();
     }
 
+    public static void main(String[] args) {
+
+    }
+
     public synchronized GenericsBean getByName(String name) {
         return container.get(name);
     }
@@ -25,8 +29,4 @@ public abstract class ApplicationContext<GenericsBean extends Bean> {
     }
 
     protected abstract void parseAllClassesAndInterfaces();
-
-    public static void main(String[] args) {
-
-    }
 }

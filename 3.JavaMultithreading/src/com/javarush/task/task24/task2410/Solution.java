@@ -11,6 +11,15 @@ public class Solution {
 
     private int countItems;
 
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+
+        Iterator iterator = solution.getIterator("iterator");
+        for (int i = 1; i < 5; i++) {
+            iterators.add(iterator.next());
+        }
+    }
+
     public Iterator getIterator(final String name) {
         return new Iterator() {
             {
@@ -23,14 +32,5 @@ public class Solution {
                 return getIterator(name);
             }
         };
-    }
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-
-        Iterator iterator = solution.getIterator("iterator");
-        for (int i = 1; i < 5; i++) {
-            iterators.add(iterator.next());
-        }
     }
 }

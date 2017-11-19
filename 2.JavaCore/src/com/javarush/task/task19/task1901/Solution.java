@@ -24,6 +24,16 @@ public class Solution {
     }
 
 
+    public interface ATable {
+        String getCurrentUserName();
+
+        String getTableName();
+    }
+
+    public interface BTable {
+        String getHeaderText();
+    }
+
     public static class TableAdapter implements BTable {
         private ATable aTable;
 
@@ -35,15 +45,5 @@ public class Solution {
         public String getHeaderText() {
             return "[" + aTable.getCurrentUserName() + "] : " + aTable.getTableName();
         }
-    }
-
-    public interface ATable {
-        String getCurrentUserName();
-
-        String getTableName();
-    }
-
-    public interface BTable {
-        String getHeaderText();
     }
 }

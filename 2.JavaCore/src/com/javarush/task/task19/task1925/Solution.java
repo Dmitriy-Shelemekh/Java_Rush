@@ -22,7 +22,7 @@ public class Solution {
                     outText.append(word).append(",");
         }
 
-        outText.delete(outText.length()-1,outText.length());
+        outText.delete(outText.length() - 1, outText.length());
         fileWriter.write(outText.toString());
         fileWriter.close();
         fileReader.close();

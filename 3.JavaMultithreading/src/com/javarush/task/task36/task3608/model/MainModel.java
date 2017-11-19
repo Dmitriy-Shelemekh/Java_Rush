@@ -51,5 +51,7 @@ public class MainModel implements Model {
         modelData.setUsers(getAllUsers());
     }
 
-    private List<User> getAllUsers() { return userService.filterOnlyActiveUsers(userService.getUsersBetweenLevels(1, 100)); }
+    private List<User> getAllUsers() {
+        return userService.filterOnlyActiveUsers(userService.getUsersBetweenLevels(1, 100));
+    }
 }

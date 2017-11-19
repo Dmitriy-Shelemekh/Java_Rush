@@ -6,10 +6,6 @@ package com.javarush.task.task15.task1518;
 
 public class Solution {
 
-    static class Cat {
-        public String name;
-    }
-
     static Cat cat = new Cat();
 
     static {
@@ -18,5 +14,9 @@ public class Solution {
     }
 
     public static void main(String[] args) {
+    }
+
+    static class Cat {
+        public String name;
     }
 }

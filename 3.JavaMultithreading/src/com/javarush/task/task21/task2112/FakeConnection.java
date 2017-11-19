@@ -1,7 +1,7 @@
 package com.javarush.task.task21.task2112;
 
 
-public class FakeConnection implements AutoCloseable{
+public class FakeConnection implements AutoCloseable {
 
     public FakeConnection() {
         System.out.println("Creating database connection...");

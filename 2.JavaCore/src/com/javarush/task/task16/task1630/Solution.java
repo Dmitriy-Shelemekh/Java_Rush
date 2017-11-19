@@ -62,9 +62,9 @@ public class Solution {
                 }
                 fileReader.close();
             } catch (FileNotFoundException e) {
-                System.out.println("File "+fileName+" not found");
+                System.out.println("File " + fileName + " not found");
             } catch (IOException e) {
-                System.out.println("File "+fileName+" can't read");
+                System.out.println("File " + fileName + " can't read");
             }
 
         }

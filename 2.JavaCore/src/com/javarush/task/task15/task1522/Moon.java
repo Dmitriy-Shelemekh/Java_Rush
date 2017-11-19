@@ -11,7 +11,7 @@ public class Moon implements Planet {
     }
 
     public static Moon getInstance() {
-        if(instance == null){
+        if (instance == null) {
             instance = new Moon();
         }
         return instance;

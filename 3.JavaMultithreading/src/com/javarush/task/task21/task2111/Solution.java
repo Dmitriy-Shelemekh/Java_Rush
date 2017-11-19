@@ -17,6 +17,10 @@ public class Solution {
         this.connection = connection;
     }
 
+    public static void main(String[] args) {
+
+    }
+
     public List<User> getUsers() {
         String query = "select ID, DISPLAYED_NAME, LEVEL, LESSON from USER";
 
@@ -51,8 +55,6 @@ public class Solution {
             connection.close();
     }
 
-
-
     public static class User {
         private int id;
         private String name;
@@ -75,9 +77,5 @@ public class Solution {
                     ", lesson=" + lesson +
                     '}';
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }

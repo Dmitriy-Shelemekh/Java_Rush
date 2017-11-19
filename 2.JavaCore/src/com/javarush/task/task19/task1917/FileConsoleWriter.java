@@ -31,6 +31,9 @@ public class FileConsoleWriter {
         fileWriter = new FileWriter(fd);
     }
 
+    public static void main(String[] args) {
+    }
+
     public String getEncoding() {
         return fileWriter.getEncoding();
     }
@@ -66,8 +69,5 @@ public class FileConsoleWriter {
 
     public void close() throws IOException {
         fileWriter.close();
-    }
-
-    public static void main(String[] args) {
     }
 }

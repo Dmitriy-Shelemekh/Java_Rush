@@ -10,6 +10,10 @@ Externalizable для апартаментов
 */
 public class Solution {
 
+    public static void main(String[] args) {
+
+    }
+
     public static class Apartment implements Externalizable {
 
         private String address;
@@ -47,9 +51,5 @@ public class Solution {
             this.year = in.readInt();
             in.close();
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }

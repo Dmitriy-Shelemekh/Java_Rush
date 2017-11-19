@@ -37,6 +37,6 @@ public class Solution {
     }
 
     public static Class getClassName() {
-        return new Shop ().getClass();
+        return new Shop().getClass();
     }
 }

@@ -20,7 +20,7 @@ public class Solution {
         System.out.println(clone.branches);
     }
 
-    public static class Plant{
+    public static class Plant {
         private String name;
 
         public Plant(String name) {
@@ -47,7 +47,7 @@ public class Solution {
         @Override
         protected Tree clone() throws CloneNotSupportedException {
             String[] strings = new String[branches.length];
-            for (int i=0;i<branches.length;i++) {
+            for (int i = 0; i < branches.length; i++) {
                 strings[i] = branches[i];
             }
 

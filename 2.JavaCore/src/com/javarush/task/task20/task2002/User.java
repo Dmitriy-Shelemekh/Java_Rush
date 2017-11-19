@@ -49,22 +49,6 @@ public class User {
         this.country = country;
     }
 
-    public static enum Country {
-        UKRAINE("Ukraine"),
-        RUSSIA("Russia"),
-        OTHER("Other");
-
-        private String name;
-
-        private Country(String name) {
-            this.name = name;
-        }
-
-        public String getDisplayedName() {
-            return this.name;
-        }
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -88,5 +72,21 @@ public class User {
         result = 31 * result + (isMale ? 1 : 0);
         result = 31 * result + (country != null ? country.hashCode() : 0);
         return result;
+    }
+
+    public static enum Country {
+        UKRAINE("Ukraine"),
+        RUSSIA("Russia"),
+        OTHER("Other");
+
+        private String name;
+
+        private Country(String name) {
+            this.name = name;
+        }
+
+        public String getDisplayedName() {
+            return this.name;
+        }
     }
 }

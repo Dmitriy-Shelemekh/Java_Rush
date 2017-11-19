@@ -3,7 +3,8 @@ package com.javarush.task.task35.task3506;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
-/* 
+
+/*
 Wildcards
 */
 public class Solution {

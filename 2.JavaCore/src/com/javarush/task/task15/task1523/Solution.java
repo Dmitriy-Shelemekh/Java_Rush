@@ -16,9 +16,11 @@ public class Solution {
         this.a = a;
     }
 
-    Solution(int a, int b) {}
+    Solution(int a, int b) {
+    }
 
-    protected Solution(int a, int b, int c) {}
+    protected Solution(int a, int b, int c) {
+    }
 
     public static void main(String[] args) {
 

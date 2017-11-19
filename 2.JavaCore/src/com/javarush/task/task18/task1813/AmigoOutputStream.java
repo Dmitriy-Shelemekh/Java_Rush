@@ -18,6 +18,10 @@ public class AmigoOutputStream extends FileOutputStream {
         component = fos;
     }
 
+    public static void main(String[] args) throws FileNotFoundException {
+        new AmigoOutputStream(new FileOutputStream(fileName));
+    }
+
     @Override
     public void write(int b) throws IOException {
         component.write(b);
@@ -51,9 +55,5 @@ public class AmigoOutputStream extends FileOutputStream {
     public void flush() throws IOException {
         component.flush();
 
-    }
-
-    public static void main(String[] args) throws FileNotFoundException {
-        new AmigoOutputStream(new FileOutputStream(fileName));
     }
 }

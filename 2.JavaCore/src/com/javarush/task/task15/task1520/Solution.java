@@ -11,6 +11,14 @@ public class Solution {
         Util.move(duck);
     }
 
+    public static interface Flyable {
+        void doAction();
+    }
+
+    public static interface Movable {
+        void doAnotherAction();
+    }
+
     public static class Duck implements Flyable, Movable {
         @Override
         public void doAction() {
@@ -31,13 +39,5 @@ public class Solution {
         static void move(Movable animal) {
             animal.doAnotherAction();
         }
-    }
-
-    public static interface Flyable {
-        void doAction();
-    }
-
-    public static interface Movable {
-        void doAnotherAction();
     }
 }

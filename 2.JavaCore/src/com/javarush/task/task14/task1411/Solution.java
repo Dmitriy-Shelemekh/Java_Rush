@@ -24,8 +24,8 @@ public class Solution {
             } else if (key.equals("proger")) {
                 person = new Person.Proger();
             } else break;
-                //создаем объект, пункт 2
-                doWork(person); //вызываем doWork
+            //создаем объект, пункт 2
+            doWork(person); //вызываем doWork
         }
     }
 

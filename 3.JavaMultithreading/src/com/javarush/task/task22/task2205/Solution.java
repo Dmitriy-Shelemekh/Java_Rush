@@ -9,6 +9,7 @@ public class Solution {
         //должен быть вывод
         //"МНЕ нравится курс JavaRush"
     }
+
     public static String getFormattedString() {
         return "%3$S %4$s %2$s %1$s";
     }

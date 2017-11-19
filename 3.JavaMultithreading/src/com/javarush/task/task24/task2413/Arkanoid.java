@@ -7,23 +7,39 @@ import java.util.ArrayList;
  * Главный класс игры
  */
 public class Arkanoid {
+    public static Arkanoid game;
     //ширина и высота
     private int width;
     private int height;
-
     //список кирпичей
     private ArrayList<Brick> bricks = new ArrayList<Brick>();
     //шарик
     private Ball ball;
     //подставка
     private Stand stand;
-
     //игра закончена?
     private boolean isGameOver = false;
 
     public Arkanoid(int width, int height) {
         this.width = width;
         this.height = height;
+    }
+
+    public static void main(String[] args) throws Exception {
+        game = new Arkanoid(20, 30);
+
+        Ball ball = new Ball(10, 29, 2, 95);
+        game.setBall(ball);
+
+        Stand stand = new Stand(10, 30);
+        game.setStand(stand);
+
+        game.getBricks().add(new Brick(3, 3));
+        game.getBricks().add(new Brick(7, 5));
+        game.getBricks().add(new Brick(12, 5));
+        game.getBricks().add(new Brick(16, 3));
+
+        game.run();
     }
 
     public ArrayList<Brick> getBricks() {
@@ -186,35 +202,16 @@ public class Arkanoid {
         return width;
     }
 
-    public int getHeight() {
-        return height;
-    }
-
     public void setWidth(int width) {
         this.width = width;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public int getHeight() {
+        return height;
     }
 
-    public static Arkanoid game;
-
-    public static void main(String[] args) throws Exception {
-        game = new Arkanoid(20, 30);
-
-        Ball ball = new Ball(10, 29, 2, 95);
-        game.setBall(ball);
-
-        Stand stand = new Stand(10, 30);
-        game.setStand(stand);
-
-        game.getBricks().add(new Brick(3, 3));
-        game.getBricks().add(new Brick(7, 5));
-        game.getBricks().add(new Brick(12, 5));
-        game.getBricks().add(new Brick(16, 3));
-
-        game.run();
+    public void setHeight(int height) {
+        this.height = height;
     }
 }
 

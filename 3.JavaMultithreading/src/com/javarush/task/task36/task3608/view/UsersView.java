@@ -6,7 +6,7 @@ import com.javarush.task.task36.task3608.model.ModelData;
 /**
  * Created by Dmitriy Shelemekh on 16.11.2017.
  */
-public class UsersView implements View{
+public class UsersView implements View {
     private Controller controller;
 
     public void fireEventShowAllUsers() {

@@ -11,7 +11,7 @@ public class Solution {
         System.out.println(getExpectedClass());
     }
 
-    public static Class getExpectedClass(){
+    public static Class getExpectedClass() {
 
         for (Class clazz : Collections.class.getDeclaredClasses()) { //get Classes
             for (Class intrf : clazz.getInterfaces()) { //get interfaces

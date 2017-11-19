@@ -14,7 +14,7 @@ public class Solution {
         TreeSet<Character> letters = new TreeSet<>();
         try (BufferedReader fileReader = new BufferedReader(new FileReader(args[0]))) {
             while (fileReader.ready()) {
-                String s = fileReader.readLine().toLowerCase().replaceAll("[^\\p{Alpha}]",""); //\s\p{Punct}
+                String s = fileReader.readLine().toLowerCase().replaceAll("[^\\p{Alpha}]", ""); //\s\p{Punct}
                 for (int i = 0; i < s.length(); i++)
                     letters.add(s.charAt(i));
             }

@@ -8,10 +8,10 @@ import java.util.List;
  * Главный класс игры - Космос (Space)
  */
 public class Space {
+    public static Space game;
     //Ширина и высота игрового поля
     private int width;
     private int height;
-
     //Космический корабль
     private SpaceShip ship;
     //Список НЛО
@@ -24,6 +24,22 @@ public class Space {
     public Space(int width, int height) {
         this.width = width;
         this.height = height;
+    }
+
+    public static void main(String[] args) throws Exception {
+        game = new Space(25, 25);
+        game.setShip(new SpaceShip(10, 18));
+        game.run();
+    }
+
+    /**
+     * Метод делает паузу длинной delay миллисекунд.
+     */
+    public static void sleep(int delay) {
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+        }
     }
 
     /**
@@ -198,7 +214,6 @@ public class Space {
         }
     }
 
-
     public SpaceShip getShip() {
         return ship;
     }
@@ -225,23 +240,5 @@ public class Space {
 
     public ArrayList<Rocket> getRockets() {
         return rockets;
-    }
-
-    public static Space game;
-
-    public static void main(String[] args) throws Exception {
-        game = new Space(25, 25);
-        game.setShip(new SpaceShip(10, 18));
-        game.run();
-    }
-
-    /**
-     * Метод делает паузу длинной delay миллисекунд.
-     */
-    public static void sleep(int delay) {
-        try {
-            Thread.sleep(delay);
-        } catch (InterruptedException e) {
-        }
     }
 }

@@ -9,7 +9,7 @@ public class ConvertableUtil {
     public static <T extends Convertable> Map convert(List<T> list) {
         Map result = new HashMap();
 
-        for (T item: list)
+        for (T item : list)
             result.put(item.getKey(), item);
 
         return result;

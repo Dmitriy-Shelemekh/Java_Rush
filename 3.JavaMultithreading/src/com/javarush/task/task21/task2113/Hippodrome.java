@@ -12,12 +12,24 @@ public class Hippodrome {
 
     private List<Horse> horses = new ArrayList<>();
 
-    public List<Horse> getHorses() {
-        return horses;
-    }
-
     public Hippodrome(List<Horse> horses) {
         this.horses = horses;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+
+        game = new Hippodrome(new ArrayList<>());
+
+        game.getHorses().add(new Horse("Horse_1", 3, 0));
+        game.getHorses().add(new Horse("Horse_2", 3, 0));
+        game.getHorses().add(new Horse("Horse_3", 3, 0));
+
+        game.run();
+        game.printWinner();
+    }
+
+    public List<Horse> getHorses() {
+        return horses;
     }
 
     public void run() throws InterruptedException {
@@ -58,17 +70,5 @@ public class Hippodrome {
 
     public void printWinner() {
         System.out.println("Winner is " + getWinner().getName() + "!");
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-
-        game = new Hippodrome(new ArrayList<>());
-
-        game.getHorses().add(new Horse("Horse_1", 3, 0));
-        game.getHorses().add(new Horse("Horse_2", 3, 0));
-        game.getHorses().add(new Horse("Horse_3", 3, 0));
-
-        game.run();
-        game.printWinner();
     }
 }

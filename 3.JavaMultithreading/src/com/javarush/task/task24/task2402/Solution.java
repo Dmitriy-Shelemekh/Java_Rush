@@ -22,13 +22,13 @@ public class Solution {
 
     public static class Test1 implements Cloneable {
         protected Test1 clone() throws CloneNotSupportedException {
-            return (Test1)super.clone();
+            return (Test1) super.clone();
         }
     }
 
     public static class Test2 extends Test1 {
         public Test2 clone(Test2 test2) throws CloneNotSupportedException {
-            return (Test2)test2.clone();
+            return (Test2) test2.clone();
         }
     }
 
@@ -40,7 +40,7 @@ public class Solution {
 
     public static class Test4 extends Test3 implements Cloneable {
         protected Test4 clone() throws CloneNotSupportedException {
-            return (Test4)super.clone();
+            return (Test4) super.clone();
         }
     }
 }

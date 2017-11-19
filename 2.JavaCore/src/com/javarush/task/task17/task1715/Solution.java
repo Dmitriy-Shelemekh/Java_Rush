@@ -24,29 +24,6 @@ public class Solution {
         isStopped = true;
     }
 
-    public static class Apteka implements Runnable{
-        @Override
-        public void run() {
-            while (!isStopped) {
-                drugsController.buy(getRandomDrug(), getRandomCount());
-                waitAMoment();
-                waitAMoment();
-                waitAMoment();
-            }
-        }
-    }
-
-    public static class Person implements Runnable{
-        @Override
-        public void run() {
-            while (!isStopped) {
-                drugsController.sell(getRandomDrug(), getRandomCount());
-                waitAMoment();
-            }
-        }
-
-    }
-
     public static int getRandomCount() {
         return (int) (Math.random() * 3) + 1;
     }
@@ -62,5 +39,28 @@ public class Solution {
             Thread.sleep(100);
         } catch (InterruptedException e) {
         }
+    }
+
+    public static class Apteka implements Runnable {
+        @Override
+        public void run() {
+            while (!isStopped) {
+                drugsController.buy(getRandomDrug(), getRandomCount());
+                waitAMoment();
+                waitAMoment();
+                waitAMoment();
+            }
+        }
+    }
+
+    public static class Person implements Runnable {
+        @Override
+        public void run() {
+            while (!isStopped) {
+                drugsController.sell(getRandomDrug(), getRandomCount());
+                waitAMoment();
+            }
+        }
+
     }
 }

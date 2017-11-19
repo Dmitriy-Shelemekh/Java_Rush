@@ -7,6 +7,10 @@ import java.math.BigDecimal;
 */
 public class Solution {
 
+    public static void main(String[] args) {
+
+    }
+
     public class Building {
 
         public class Hall {
@@ -33,10 +37,5 @@ public class Solution {
         public BigHall(Building building, BigDecimal square) {
             building.super(square);
         }
-    }
-
-
-    public static void main(String[] args) {
-
     }
 }

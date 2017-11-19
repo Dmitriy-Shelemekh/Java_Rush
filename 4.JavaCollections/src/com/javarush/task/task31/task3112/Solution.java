@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 public class Solution {
     public static void main(String[] args) throws IOException {
 //        Path passwords = downloadFile("http://placehold.it/100x50/88cc00.png", Paths.get("C:\\a.txt"));
-        Path passwords = downloadFile("https://yastatic.net/morda-logo/i/citylogos/yandex19-logo-ru.png",Paths.get("C:/"));
+        Path passwords = downloadFile("https://yastatic.net/morda-logo/i/citylogos/yandex19-logo-ru.png", Paths.get("C:/"));
 //        Path passwords = downloadFile("https://www.amigo.com/ship/secretPassword.txt", Paths.get("C:\\"));
 
         for (String line : Files.readAllLines(passwords)) {
@@ -23,11 +23,11 @@ public class Solution {
 
     public static Path downloadFile(String urlString, Path downloadDirectory) throws IOException {
         // implement this method
-        URL url=new URL(urlString);
-        InputStream inputStream=url.openStream();
+        URL url = new URL(urlString);
+        InputStream inputStream = url.openStream();
 
-        Path tempFile=Files.createTempFile("temp-",".tmp");
-        Files.copy(inputStream,tempFile);
+        Path tempFile = Files.createTempFile("temp-", ".tmp");
+        Files.copy(inputStream, tempFile);
 
         String fileName = urlString.substring(urlString.lastIndexOf("/"));
         Path dowloadedFile = Paths.get(downloadDirectory + "/" + fileName);

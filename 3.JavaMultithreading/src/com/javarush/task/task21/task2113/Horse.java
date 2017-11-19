@@ -9,6 +9,12 @@ public class Horse {
     double speed;
     double distance;
 
+    public Horse(String name, double speed, double distance) {
+        this.name = name;
+        this.speed = speed;
+        this.distance = distance;
+    }
+
     public void move() {
         this.distance += (speed * Math.random());
     }
@@ -42,12 +48,6 @@ public class Horse {
     }
 
     public void setDistance(double distance) {
-        this.distance = distance;
-    }
-
-    public Horse(String name, double speed, double distance) {
-        this.name = name;
-        this.speed = speed;
         this.distance = distance;
     }
 }

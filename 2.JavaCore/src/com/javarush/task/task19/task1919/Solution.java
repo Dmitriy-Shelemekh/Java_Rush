@@ -18,11 +18,11 @@ public class Solution {
         HashMap<String, Double> hashMap = new HashMap<String, Double>();
         try {
             BufferedReader fileReader = new BufferedReader(new FileReader(filename));
-            while (fileReader.ready()){
+            while (fileReader.ready()) {
                 String[] znachenia = fileReader.readLine().split(" ");
-                if (hashMap.containsKey(znachenia[0])){
-                    hashMap.put(znachenia[0], (hashMap.get(znachenia[0])+Double.parseDouble(znachenia[1])));
-                }else hashMap.put(znachenia[0], Double.parseDouble(znachenia[1]));
+                if (hashMap.containsKey(znachenia[0])) {
+                    hashMap.put(znachenia[0], (hashMap.get(znachenia[0]) + Double.parseDouble(znachenia[1])));
+                } else hashMap.put(znachenia[0], Double.parseDouble(znachenia[1]));
             }
             fileReader.close();
         } catch (FileNotFoundException e) {
@@ -31,8 +31,8 @@ public class Solution {
 
         TreeMap<String, Double> treeMap = new TreeMap<String, Double>(hashMap);
 
-        for (Map.Entry<String, Double> znach : treeMap.entrySet()){
-            System.out.println(znach.getKey()+" "+znach.getValue());
+        for (Map.Entry<String, Double> znach : treeMap.entrySet()) {
+            System.out.println(znach.getKey() + " " + znach.getValue());
         }
     }
 }

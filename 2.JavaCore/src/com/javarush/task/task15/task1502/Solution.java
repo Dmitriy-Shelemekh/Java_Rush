@@ -5,6 +5,10 @@ package com.javarush.task.task15.task1502;
 */
 
 public class Solution {
+    public static void main(String[] args) {
+
+    }
+
     //добавьте классы Goose и Dragon тут
     public static class Goose extends SmallAnimal {
         public String getSize() {
@@ -16,10 +20,6 @@ public class Solution {
         public String getSize() {
             return "Дракон большой, " + super.getSize();
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 
     public static class BigAnimal {

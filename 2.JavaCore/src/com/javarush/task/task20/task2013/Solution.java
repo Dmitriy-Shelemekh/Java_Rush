@@ -10,6 +10,10 @@ import java.util.List;
 Externalizable Person
 */
 public class Solution {
+    public static void main(String[] args) {
+
+    }
+
     public static class Person implements Externalizable {
         private String firstName;
         private String lastName;
@@ -58,9 +62,5 @@ public class Solution {
             age = in.readInt();
             children = (List) in.readObject();
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }

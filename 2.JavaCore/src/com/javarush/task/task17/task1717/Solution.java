@@ -5,8 +5,18 @@ package com.javarush.task.task17.task1717;
 */
 
 public class Solution {
+    private static final java.io.ObjectStreamField[] serialPersistentFields =
+            {
+                    new java.io.ObjectStreamField("value", char[].class),
+                    new java.io.ObjectStreamField("count", Integer.TYPE),
+                    new java.io.ObjectStreamField("shared", Boolean.TYPE),
+            };
     char[] value;
     int count;
+
+    public static void main(String[] args) {
+
+    }
 
     public Solution append(CharSequence s) {
 //        synchronized (Solution.class) {
@@ -36,13 +46,6 @@ public class Solution {
         return this;
     }
 
-    private static final java.io.ObjectStreamField[] serialPersistentFields =
-            {
-                    new java.io.ObjectStreamField("value", char[].class),
-                    new java.io.ObjectStreamField("count", Integer.TYPE),
-                    new java.io.ObjectStreamField("shared", Boolean.TYPE),
-            };
-
     private synchronized void writeObject(java.io.ObjectOutputStream s) throws java.io.IOException {
         java.io.ObjectOutputStream.PutField fields = s.putFields();
 //        synchronized (fields) {
@@ -61,9 +64,5 @@ public class Solution {
         value = (char[]) fields.get("value", null);
         count = fields.get("count", 0);
 //        }
-    }
-
-    public static void main(String[] args) {
-
     }
 }

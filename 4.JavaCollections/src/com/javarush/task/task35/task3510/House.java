@@ -1,23 +1,37 @@
 package com.javarush.task.task35.task3510;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /* 
 Вход воспрещен!
 */
-public class House <T> {
+public class House<T> {
 
     private List<T> residents = new ArrayList();
+
+    public static void main(String[] args) {
+        Dog bruno = new Dog("Bruno");
+        Puppy larsik = new Puppy("Larsik");
+        Cat barsik = new Cat("Barsik");
+        Kitten keksik = new Kitten("Keksik");
+
+        House<Dog> dogHouse = new House();
+        dogHouse.enter(bruno);
+        dogHouse.enter(larsik);
+//        dogHouse.enter(barsik);
+        System.out.println(dogHouse.toString());
+
+        House<Cat> catHouse = new House();
+        catHouse.enter(barsik);
+        catHouse.enter(keksik);
+//        catHouse.enter(bruno);
+        System.out.println(catHouse.toString());
+    }
 
     public void enter(T resident) {
         residents.add(resident);
 //        checkConflicts();
-    }
-
-    public void leave(T resident) {
-        residents.remove(resident);
     }
 
 //    private void checkConflicts() {
@@ -39,6 +53,10 @@ public class House <T> {
 //        }
 //    }
 
+    public void leave(T resident) {
+        residents.remove(resident);
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -47,24 +65,5 @@ public class House <T> {
             builder.append(resident.toString()).append("\n");
         }
         return builder.toString();
-    }
-
-    public static void main(String[] args) {
-        Dog bruno = new Dog("Bruno");
-        Puppy larsik = new Puppy("Larsik");
-        Cat barsik = new Cat("Barsik");
-        Kitten keksik = new Kitten("Keksik");
-
-        House<Dog> dogHouse = new House();
-        dogHouse.enter(bruno);
-        dogHouse.enter(larsik);
-//        dogHouse.enter(barsik);
-        System.out.println(dogHouse.toString());
-
-        House<Cat> catHouse = new House();
-        catHouse.enter(barsik);
-        catHouse.enter(keksik);
-//        catHouse.enter(bruno);
-        System.out.println(catHouse.toString());
     }
 }

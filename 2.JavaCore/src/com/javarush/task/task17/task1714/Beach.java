@@ -15,6 +15,10 @@ public class Beach implements Comparable<Beach> {
         this.quality = quality;
     }
 
+    public static void main(String[] args) {
+
+    }
+
     public synchronized String getName() {
         return name;
     }
@@ -37,10 +41,6 @@ public class Beach implements Comparable<Beach> {
 
     public synchronized void setQuality(int quality) {
         this.quality = quality;
-    }
-
-    public static void main(String[] args) {
-
     }
 
     @Override

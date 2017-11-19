@@ -16,9 +16,9 @@ public class Solution {
                 throw new TooShortStringException();
         }
         String s[] = string.split(" ");
-        return s[1] + " " + s[2] + " " + s[3] + " " +  s[4];
+        return s[1] + " " + s[2] + " " + s[3] + " " + s[4];
     }
 
-    public static class TooShortStringException extends RuntimeException{
+    public static class TooShortStringException extends RuntimeException {
     }
 }

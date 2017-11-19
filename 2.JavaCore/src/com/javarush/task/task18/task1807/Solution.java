@@ -18,7 +18,7 @@ public class Solution {
         while (inputStream.available() > 0) {
             int readByte = inputStream.read();
             if (readByte == 44) {
-                count ++;
+                count++;
             }
         }
         System.out.println(count);

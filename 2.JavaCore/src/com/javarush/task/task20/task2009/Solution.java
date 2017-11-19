@@ -6,12 +6,6 @@ import java.io.*;
 Как сериализовать static?
 */
 public class Solution {
-    public static class ClassWithStatic implements Serializable {
-        public static String staticString = "it's test static string";
-        public int i;
-        public int j;
-    }
-
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         String fileName = "e:\\6.txt";
         ClassWithStatic cws = new ClassWithStatic();
@@ -26,5 +20,11 @@ public class Solution {
         ClassWithStatic cws2 = (ClassWithStatic) reader.readObject();
 
         System.out.printf("i=" + cws2.i + " " + cws2.j + " " + cws2.staticString);
+    }
+
+    public static class ClassWithStatic implements Serializable {
+        public static String staticString = "it's test static string";
+        public int i;
+        public int j;
     }
 }

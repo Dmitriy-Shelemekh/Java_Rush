@@ -30,7 +30,7 @@ public class Solution {
 
         Files.walkFileTree(pth, new Visitior());
 
-        System.out.println("Всего папок - " + (totalFolders-1));
+        System.out.println("Всего папок - " + (totalFolders - 1));
         System.out.println("Всего файлов - " + totalFiles);
         System.out.println("Общий размер - " + totalSize);
 

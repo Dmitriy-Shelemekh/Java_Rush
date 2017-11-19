@@ -49,7 +49,7 @@ public class Solution {
         }
     }
 
-    static class Whale extends OceanAnimal implements Swimmable{
+    static class Whale extends OceanAnimal implements Swimmable {
 
         public void swim() {
 

@@ -14,6 +14,18 @@ public class Solution implements Serializable, AutoCloseable {
         this.fileName = fileName;
     }
 
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Solution solution = new Solution("e:\\shalom.txt");
+        solution.writeObject("Shalom!\r\n");
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("e:\\solution.obj"));
+        oos.writeObject(solution);
+
+        ObjectInputStream ois = new ObjectInputStream((new FileInputStream("e:\\solution.obj")));
+        Solution solution2 = (Solution) ois.readObject();
+        solution2.writeObject("Shalom again!");
+
+    }
+
     public void writeObject(String string) throws IOException {
         stream.write(string.getBytes());
         stream.write("\n".getBytes());
@@ -34,17 +46,5 @@ public class Solution implements Serializable, AutoCloseable {
     public void close() throws Exception {
         System.out.println("Closing everything!");
         stream.close();
-    }
-
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Solution solution = new Solution("e:\\shalom.txt");
-        solution.writeObject("Shalom!\r\n");
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("e:\\solution.obj"));
-        oos.writeObject(solution);
-
-        ObjectInputStream ois = new ObjectInputStream((new FileInputStream("e:\\solution.obj")));
-        Solution solution2 = (Solution) ois.readObject();
-        solution2.writeObject("Shalom again!");
-
     }
 }

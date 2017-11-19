@@ -4,19 +4,17 @@ package com.javarush.task.task22.task2201;
 Строки нитей или строковые нити? Вот в чем вопрос
 */
 public class Solution {
-    public static void main(String[] args) {
-        new Solution();
-    }
-
     public static final String FIRST_THREAD_NAME = "1#";
     public static final String SECOND_THREAD_NAME = "2#";
-
     private Thread thread1;
     private Thread thread2;
     private Thread thread3;
-
     public Solution() {
         initThreads();
+    }
+
+    public static void main(String[] args) {
+        new Solution();
     }
 
     protected void initThreads() {
@@ -36,7 +34,7 @@ public class Solution {
         String result;
         try {
             result = string.substring(string.indexOf("\t") + 1, string.lastIndexOf("\t"));
-        }catch (StringIndexOutOfBoundsException e) {
+        } catch (StringIndexOutOfBoundsException e) {
             if (threadName.equals(FIRST_THREAD_NAME)) throw new TooShortStringFirstThreadException(e);
             if (threadName.equals(SECOND_THREAD_NAME)) throw new TooShortStringSecondThreadException(e);
             throw new RuntimeException(e);

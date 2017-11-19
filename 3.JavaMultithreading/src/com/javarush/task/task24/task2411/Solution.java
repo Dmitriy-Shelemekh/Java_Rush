@@ -4,14 +4,6 @@ package com.javarush.task.task24.task2411;
 Вспомним наследование
 */
 public class Solution extends C {
-    private class A {
-        protected String value = "A";
-
-        public A() {
-            System.out.print(value);
-        }
-    }
-
     private A a = new A() {
         { //у анонимных классов нет своих конструкторов, но что-то можно сделать в блоке инициализации класса
             value = "Y";
@@ -27,6 +19,14 @@ public class Solution extends C {
 
     public static void main(String[] args) {
         new Solution();
+    }
+
+    private class A {
+        protected String value = "A";
+
+        public A() {
+            System.out.print(value);
+        }
     }
 }
 

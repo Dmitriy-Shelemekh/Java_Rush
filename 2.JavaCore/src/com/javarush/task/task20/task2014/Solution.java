@@ -8,15 +8,10 @@ import java.util.Date;
 Serializable Solution
 */
 public class Solution implements Serializable {
-    public static void main(String[] args) {
-        System.out.println(new Solution(4));
-    }
-
     transient private final String pattern = "dd MMMM yyyy, EEEE";
+    String string;
     transient private Date currentDate;
     transient private int temperature;
-    String string;
-
     public Solution(int temperature) {
         this.currentDate = new Date();
         this.temperature = temperature;
@@ -24,6 +19,10 @@ public class Solution implements Serializable {
         string = "Today is %s, and current temperature is %s C";
         SimpleDateFormat format = new SimpleDateFormat(pattern);
         this.string = String.format(string, format.format(currentDate), temperature);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new Solution(4));
     }
 
     @Override

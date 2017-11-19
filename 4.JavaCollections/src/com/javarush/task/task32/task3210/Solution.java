@@ -24,7 +24,7 @@ public class Solution {
         }
     }
 
-    public static String convertByteToString (byte readBytes[]) {
+    public static String convertByteToString(byte readBytes[]) {
         //return new String(readBytes, StandardCharsets.UTF_8);
         return new String(readBytes);
     }

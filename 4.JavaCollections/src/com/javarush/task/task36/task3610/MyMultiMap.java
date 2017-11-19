@@ -36,7 +36,7 @@ public class MyMultiMap<K, V> extends HashMap<K, V> implements Cloneable, Serial
             values = new ArrayList<>();
 
         } else {
-            oldValue = values.get(values.size()-1);
+            oldValue = values.get(values.size() - 1);
             if (values.size() == repeatCount)
                 values.remove(0);
         }

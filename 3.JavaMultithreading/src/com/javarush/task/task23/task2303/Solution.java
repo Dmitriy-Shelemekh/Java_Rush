@@ -5,6 +5,10 @@ package com.javarush.task.task23.task2303;
 */
 public class Solution {
 
+    public static void main(String[] args) {
+
+    }
+
     public abstract static class Listener {
 
         public void onMouseDown(int x, int y) {
@@ -14,9 +18,5 @@ public class Solution {
         public void onMouseUp(int x, int y) {
             //do something on mouse up event
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }

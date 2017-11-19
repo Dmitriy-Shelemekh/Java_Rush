@@ -9,6 +9,13 @@ import java.util.Map;
 */
 public class Solution implements Serializable {
 
+    private Map<String, String> m = new HashMap<>();
+
+    public Solution() { //Было: public void Solution() т.е. был объявлен метод, а не коструктор, и который никто и не вызывал..
+        m.put("Mickey", "Mouse");
+        m.put("Mickey", "Mantle");
+    }
+
     public static void main(String args[]) throws Exception {
         FileOutputStream fileOutput = new FileOutputStream("e:\\5.txt");
         ObjectOutputStream outputStream = new ObjectOutputStream(fileOutput);
@@ -32,15 +39,8 @@ public class Solution implements Serializable {
         System.out.println(loadedObject.size());
     }
 
-    private Map<String, String> m = new HashMap<>();
-
     public Map<String, String> getMap() {
         return m;
-    }
-
-    public Solution() { //Было: public void Solution() т.е. был объявлен метод, а не коструктор, и который никто и не вызывал..
-        m.put("Mickey", "Mouse");
-        m.put("Mickey", "Mantle");
     }
 
     public int size() {

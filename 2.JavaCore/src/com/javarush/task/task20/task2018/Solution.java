@@ -6,6 +6,23 @@ import java.io.*;
 Найти ошибки
 */
 public class Solution {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(arrayOutputStream);
+
+        Solution solution = new Solution();
+        B b = solution.new B("B2");
+        System.out.println(b.name);
+
+        oos.writeObject(b);
+
+        ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(arrayOutputStream.toByteArray());
+        ObjectInputStream ois = new ObjectInputStream(arrayInputStream);
+
+        B b1 = (B) ois.readObject();
+        System.out.println(b1.name);
+    }
+
     public static class A {
         protected String name = "A";
 
@@ -25,26 +42,10 @@ public class Solution {
             out.writeObject(name);
 
         }
+
         private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
-            in.defaultReadObject ();
+            in.defaultReadObject();
             this.name = (String) in.readObject();
         }
-    }
-
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(arrayOutputStream);
-
-        Solution solution = new Solution();
-        B b = solution.new B("B2");
-        System.out.println(b.name);
-
-        oos.writeObject(b);
-
-        ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(arrayOutputStream.toByteArray());
-        ObjectInputStream ois = new ObjectInputStream(arrayInputStream);
-
-        B b1 = (B)ois.readObject();
-        System.out.println(b1.name);
     }
 }

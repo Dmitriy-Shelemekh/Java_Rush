@@ -13,6 +13,15 @@ public class Solution {
     public static Properties prop = new Properties();
     public static String filName;
 
+    public static void main(String[] args) throws Exception {
+        Solution solution = new Solution();
+        solution.fillInPropertiesMap();
+
+        FileOutputStream fileOutputStream = new FileOutputStream(Solution.filName);
+        solution.save(fileOutputStream);
+        fileOutputStream.close();
+    }
+
     public void fillInPropertiesMap() throws Exception {
         //implement this method - реализуйте этот метод
         BufferedReader conReader = new BufferedReader(new InputStreamReader(System.in));
@@ -40,14 +49,5 @@ public class Solution {
         for (Map.Entry<Object, Object> pair : prop.entrySet()) {
             properties.put((String) pair.getKey(), (String) pair.getValue());
         }
-    }
-
-    public static void main(String[] args) throws Exception {
-        Solution solution = new Solution();
-        solution.fillInPropertiesMap();
-
-        FileOutputStream fileOutputStream = new FileOutputStream(Solution.filName);
-        solution.save(fileOutputStream);
-        fileOutputStream.close();
     }
 }

@@ -20,6 +20,20 @@ public class Solution {
         System.out.println(potentialFriends);                                           //expected: [2, 5, 7]
     }
 
+    //return test data
+    private static boolean[][] generateRelationships() {
+        return new boolean[][]{
+                {true},                                                                 //0
+                {true, true},                                                           //1
+                {false, true, true},                                                    //2
+                {false, false, false, true},                                            //3
+                {true, true, false, true, true},                                        //4
+                {true, false, true, false, false, true},                                //5
+                {false, false, false, false, false, true, true},                        //6
+                {false, false, false, true, false, false, false, true}                  //7
+        };
+    }
+
     public Set<Integer> getAllFriendsAndPotentialFriends(int index, int deep) {
         //напишите тут ваш код
         Set<Integer> result = new HashSet<>();
@@ -51,19 +65,5 @@ public class Solution {
             }
         }
         return set;
-    }
-
-    //return test data
-    private static boolean[][] generateRelationships() {
-        return new boolean[][]{
-                {true},                                                                 //0
-                {true, true},                                                           //1
-                {false, true, true},                                                    //2
-                {false, false, false, true},                                            //3
-                {true, true, false, true, true},                                        //4
-                {true, false, true, false, false, true},                                //5
-                {false, false, false, false, false, true, true},                        //6
-                {false, false, false, true, false, false, false, true}                  //7
-        };
     }
 }

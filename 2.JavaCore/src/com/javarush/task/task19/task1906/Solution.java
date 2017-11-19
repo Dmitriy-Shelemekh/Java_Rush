@@ -19,12 +19,12 @@ public class Solution {
 
         ArrayList<Integer> list = new ArrayList<>();
 
-        while (reared.ready()){
+        while (reared.ready()) {
             int x = reared.read();
             list.add(x);
         }
 
-        for (int i = 1; i < list.size(); i = i + 2){
+        for (int i = 1; i < list.size(); i = i + 2) {
             writer.write(list.get(i));
         }
 

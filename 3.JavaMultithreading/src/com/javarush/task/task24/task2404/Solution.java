@@ -1,10 +1,6 @@
 package com.javarush.task.task24.task2404;
 
-import com.javarush.task.task24.task2404.HasHeight;
-import com.javarush.task.task24.task2404.HasWidth;
-import com.javarush.task.task24.task2404.Point;
-
-/* 
+/*
 Рефакторинг Rectangle
 */
 public class Solution {

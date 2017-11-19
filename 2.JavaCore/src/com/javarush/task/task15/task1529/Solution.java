@@ -9,9 +9,7 @@ import java.io.InputStreamReader;
 */
 
 public class Solution {
-    public static void main(String[] args) {
-
-    }
+    public static Flyable result;
 
     static {
         //add your code here - добавьте код тут
@@ -22,7 +20,9 @@ public class Solution {
         }
     }
 
-    public static Flyable result;
+    public static void main(String[] args) {
+
+    }
 
     public static void reset() throws IOException {
         //add your code here - добавьте код тут

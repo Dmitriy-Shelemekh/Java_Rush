@@ -1,12 +1,11 @@
 package com.javarush.task.task20.task2006;
 
 public class Asset {
+    private String name;
+    private double price;
     public Asset(String name) {
         this.name = name;
     }
-
-    private String name;
-    private double price;
 
     public String getName() {
         return name;

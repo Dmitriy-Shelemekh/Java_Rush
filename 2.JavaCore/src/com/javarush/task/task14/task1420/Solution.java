@@ -11,19 +11,20 @@ public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int a = Integer.parseInt(reader.readLine());
-        if (a <= 0){
+        if (a <= 0) {
             throw new NumberFormatException();
         }
         int b = Integer.parseInt(reader.readLine());
-        if (b <= 0){
+        if (b <= 0) {
             throw new NumberFormatException();
         }
 
         System.out.println(gcd(a, b));
     }
-    public static int gcd(int a,int b) {
-        while (b !=0) {
-            int tmp = a%b;
+
+    public static int gcd(int a, int b) {
+        while (b != 0) {
+            int tmp = a % b;
             a = b;
             b = tmp;
         }

@@ -11,14 +11,26 @@ OutputToConsole
 public class Solution {
     public static String greeting = "Hello world";
 
+    public static void main(String[] args) {
+
+    }
+
     /**
      * OutputToConsole is the inner base class for improving your attentiveness.
      * An OutputToConsole object encapsulates the information needed
      * for the displaying [greeting] variable to the console.
+     *
      * @author JavaRush
      */
     public static class OutputToConsole implements Externalizable {
         private int counter;
+
+        /**
+         * Class constructor specifying fake private field [i].
+         */
+        public OutputToConsole(int counter) {
+            this.counter = counter;
+        }
 
         /**
          * @param out A stream for an externalization
@@ -40,13 +52,6 @@ public class Solution {
         }
 
         /**
-         * Class constructor specifying fake private field [i].
-         */
-        public OutputToConsole(int counter) {
-            this.counter = counter;
-        }
-
-        /**
          * Prints greeting message to console counter times.
          */
         public void printMessage() {
@@ -54,9 +59,5 @@ public class Solution {
                 System.out.println(greeting);
             }
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }

@@ -45,6 +45,13 @@ public class Solution {
         public Human() {
         }
 
+        public Human(String name, Asset... assets) {
+            this.name = name;
+            if (assets != null) {
+                this.assets.addAll(Arrays.asList(assets));
+            }
+        }
+
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
@@ -62,13 +69,6 @@ public class Solution {
             int result = name != null ? name.hashCode() : 0;
             result = 31 * result + (assets != null ? assets.hashCode() : 0);
             return result;
-        }
-
-        public Human(String name, Asset... assets) {
-            this.name = name;
-            if (assets != null) {
-                this.assets.addAll(Arrays.asList(assets));
-            }
         }
 
         public void save(OutputStream outputStream) throws Exception {

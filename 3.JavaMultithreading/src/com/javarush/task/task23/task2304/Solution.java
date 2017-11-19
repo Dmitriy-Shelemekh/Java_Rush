@@ -14,6 +14,10 @@ public class Solution {
     private DbDataProvider taskDataProvider = new TaskDataProvider();
     private DbDataProvider nameDataProvider = new NameDataProvider();
 
+    public static void main(String[] args) {
+
+    }
+
     public void refresh() {
         Map taskCriteria = ViewMock.getFakeTasksCriteria();
         taskDataProvider.refreshAllData(taskCriteria);
@@ -29,24 +33,18 @@ public class Solution {
     class Task {
     }
 
-
-
-    private class TaskDataProvider implements DbDataProvider<Task>{
+    private class TaskDataProvider implements DbDataProvider<Task> {
         @Override
         public void refreshAllData(Map criteria) {
             tasks = DbMock.getFakeTasks(criteria);
         }
     }
 
-    private class NameDataProvider implements DbDataProvider<String>{
+    private class NameDataProvider implements DbDataProvider<String> {
         @Override
         public void refreshAllData(Map criteria) {
             names = DbMock.getFakeNames(criteria);
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 
 }

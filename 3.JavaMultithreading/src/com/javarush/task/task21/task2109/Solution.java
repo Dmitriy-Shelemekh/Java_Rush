@@ -4,6 +4,10 @@ package com.javarush.task.task21.task2109;
 Запретить клонирование
 */
 public class Solution {
+    public static void main(String[] args) {
+
+    }
+
     public static class A implements Cloneable {
         private int i;
         private int j;
@@ -53,9 +57,5 @@ public class Solution {
 
             return new C(i, j, name);
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }

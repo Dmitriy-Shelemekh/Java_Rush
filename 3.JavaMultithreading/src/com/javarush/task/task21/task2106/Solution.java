@@ -20,6 +20,10 @@ public class Solution {
         this.solution = solution;
     }
 
+    public static void main(String[] args) {
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -47,9 +51,5 @@ public class Solution {
         result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (string != null ? string.hashCode() : 0);
         return result;
-    }
-
-    public static void main(String[] args) {
-
     }
 }

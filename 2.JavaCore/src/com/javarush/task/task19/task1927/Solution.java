@@ -42,24 +42,24 @@ public class Solution {
 
         private PrintStream printStream;
 
-        MyStream (PrintStream printStream) {
+        MyStream(PrintStream printStream) {
             super(printStream);
             this.printStream = printStream;
+        }
+
+        public MyStream(OutputStream out) {
+            super(out);
         }
 
         @Override
         public void print(String s) {
             if (MyStream.count == 1) {
-                printStream.print(s+adv);
+                printStream.print(s + adv);
                 MyStream.count = 0;
             } else {
                 printStream.print(s);
                 MyStream.count++;
             }
-        }
-
-        public MyStream(OutputStream out) {
-            super(out);
         }
     }
 }

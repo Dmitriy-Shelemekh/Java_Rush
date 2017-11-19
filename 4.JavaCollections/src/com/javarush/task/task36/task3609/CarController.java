@@ -35,12 +35,12 @@ public class CarController {
         return model.getModel();
     }
 
-    public void setCarSpeed(int speed) {
-        model.setSpeed(speed);
-    }
-
     public int getCarSpeed() {
         return model.getSpeed();
+    }
+
+    public void setCarSpeed(int speed) {
+        model.setSpeed(speed);
     }
 
     public int getCarMaxSpeed() {

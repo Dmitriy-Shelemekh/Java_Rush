@@ -1,7 +1,6 @@
 package com.javarush.task.task31.task3103;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.List;
 */
 public class Solution {
     public static byte[] readBytes(String fileName) throws IOException {
-        return Files.readAllBytes(Paths.get (fileName));
+        return Files.readAllBytes(Paths.get(fileName));
     }
 
     public static List<String> readLines(String fileName) throws IOException {

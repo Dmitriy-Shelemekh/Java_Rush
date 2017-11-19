@@ -1,6 +1,6 @@
 package com.javarush.task.task31.task3111;
 
-import java.io.*;
+import java.io.IOException;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,19 +9,17 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import static java.nio.file.FileVisitResult.CONTINUE;
 
 public class SearchFileVisitor extends SimpleFileVisitor<Path> {
-
-    private List<Path> foundFiles = new ArrayList<>();
-    private String partOfName;
-    private String partOfContent;
 
     boolean minSizeCheck;
     boolean maxSizeCheck;
     boolean partOfNameCheck;
     boolean partOfContentCheck;
+    private List<Path> foundFiles = new ArrayList<>();
+    private String partOfName;
+    private String partOfContent;
     private int minSize;
     private int maxSize;
 

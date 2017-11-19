@@ -7,20 +7,20 @@ public class Plane implements Flyable {
     private int passengers;
 
 
-    public int getPassengers() {
-        return passengers;
-    }
-
-    public void setPassengers(int passengers) {
-        this.passengers = passengers;
-    }
-
     public Plane() {
 
     }
 
     public Plane(int passengers) {
         setPassengers(passengers);
+    }
+
+    public int getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(int passengers) {
+        this.passengers = passengers;
     }
 
     public void fly() {

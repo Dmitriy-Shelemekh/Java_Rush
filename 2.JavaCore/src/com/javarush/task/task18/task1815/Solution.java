@@ -7,6 +7,17 @@ import java.util.List;
 */
 
 public class Solution {
+    public static void main(String[] args) {
+    }
+
+    public interface ATableInterface {
+        void setModel(List rows);
+
+        String getHeaderText();
+
+        void setHeaderText(String newHeaderText);
+    }
+
     public class TableInterfaceWrapper implements ATableInterface {
         private ATableInterface component;
 
@@ -30,16 +41,5 @@ public class Solution {
         public void setHeaderText(String newHeaderText) {
             this.component.setHeaderText(newHeaderText);
         }
-    }
-
-    public interface ATableInterface {
-        void setModel(List rows);
-
-        String getHeaderText();
-
-        void setHeaderText(String newHeaderText);
-    }
-
-    public static void main(String[] args) {
     }
 }

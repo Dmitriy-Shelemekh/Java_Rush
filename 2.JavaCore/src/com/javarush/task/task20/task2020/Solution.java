@@ -9,11 +9,20 @@ import java.util.logging.Logger;
 */
 public class Solution {
 
+    public static void main(String[] args) {
+
+    }
+
+    enum Sex {
+        MALE,
+        FEMALE
+    }
+
     public static class Person implements Serializable {
+        transient final String greetingString;
         String firstName;
         String lastName;
         transient String fullName;
-        transient final String greetingString;
         String country;
         Sex sex;
         transient PrintStream outputStream;
@@ -29,14 +38,5 @@ public class Solution {
             this.outputStream = System.out;
             this.logger = Logger.getLogger(String.valueOf(Person.class));
         }
-    }
-
-    enum Sex {
-        MALE,
-        FEMALE
-    }
-
-    public static void main(String[] args) {
-
     }
 }

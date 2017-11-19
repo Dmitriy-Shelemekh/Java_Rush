@@ -18,6 +18,10 @@ public class Solution implements Serializable, Runnable {
         runner.start();
     }
 
+    public static void main(String[] args) {
+
+    }
+
     public void run() {
         // do something here, does not matter
     }
@@ -37,9 +41,5 @@ public class Solution implements Serializable, Runnable {
         in.defaultReadObject();
         runner = new Thread(this);
         runner.start();
-    }
-
-    public static void main(String[] args) {
-
     }
 }

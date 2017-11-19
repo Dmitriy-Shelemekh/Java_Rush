@@ -1,7 +1,6 @@
 package com.javarush.task.task18.task1814;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 
@@ -22,6 +21,9 @@ public class TxtInputStream extends FileInputStream {
             super.close();
             throw new UnsupportedFileNameException();
         }
+    }
+
+    public static void main(String[] args) {
     }
 
     @Override
@@ -58,9 +60,6 @@ public class TxtInputStream extends FileInputStream {
     @Override
     public FileChannel getChannel() {
         return this.component.getChannel();
-    }
-
-    public static void main(String[] args) {
     }
 }
 

@@ -11,6 +11,9 @@ import java.util.List;
 Поиск скрытых файлов
 */
 public class Solution extends SimpleFileVisitor<Path> {
+    private List<String> archived = new ArrayList<>();
+    private List<String> failed = new ArrayList<>();
+
     public static void main(String[] args) throws IOException {
         EnumSet<FileVisitOption> options = EnumSet.of(FileVisitOption.FOLLOW_LINKS);
         final Solution solution = new Solution();
@@ -28,9 +31,6 @@ public class Solution extends SimpleFileVisitor<Path> {
             System.out.println("\t" + path);
         }
     }
-
-    private List<String> archived = new ArrayList<>();
-    private List<String> failed = new ArrayList<>();
 
     public List<String> getArchived() {
         return archived;

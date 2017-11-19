@@ -3,6 +3,7 @@ package com.javarush.task.task24.task2409;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+
 import static com.javarush.task.task24.task2409.Util.Company.Denim;
 
 public class Util {
@@ -57,7 +58,7 @@ public class Util {
 
             @Override
             public String toString() {
-                return getTM()+"{" +
+                return getTM() + "{" +
                         "id=" + this.id +
                         ", length=" + this.length +
                         ", size=" + this.size +
@@ -67,7 +68,7 @@ public class Util {
             }
         }
 
-        class Levis extends AbstractJeans{
+        class Levis extends AbstractJeans {
 
             public Levis(int id, int length, int size, double price) {
                 super(id, length, size, price);
@@ -80,7 +81,7 @@ public class Util {
 
         }
 
-        class Denim extends AbstractJeans{
+        class Denim extends AbstractJeans {
 
             public Denim(int id, int length, int size, double price) {
                 super(id, length, size, price);
@@ -96,7 +97,7 @@ public class Util {
 
         for (Object[] obj : getJeansArray()) {
             int id = (int) obj[0];
-            final Company company = (Company ) obj[1];
+            final Company company = (Company) obj[1];
             int length = (int) obj[2];
             int size = (int) obj[3];
             double price = (double) obj[4];
@@ -104,8 +105,7 @@ public class Util {
             Jeans jeans = null;
             if (Company.Levis == company) {
                 jeans = new Levis(id, length, size, price);
-            } else
-            if (Denim == company) {
+            } else if (Denim == company) {
                 jeans = new Denim(id, length, size, price);
             } else {
                 jeans = new AbstractJeans(id, length, size, price) {
@@ -124,12 +124,13 @@ public class Util {
     }
 
     static enum Company {
-        Levis ("Levi's"),
+        Levis("Levi's"),
         Denim("Denim"),
         Colins("COLIN'S"),
         CalvinKleinJeans("Calvin Klein Jeans");
 
         final String fullName;
+
         Company(String name) {
             this.fullName = name;
         }

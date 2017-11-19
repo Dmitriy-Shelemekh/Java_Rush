@@ -1,421 +1,346 @@
 package com.javarush.task.task34.task3404;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.text.DecimalFormatSymbols;
 
 /*
 Рекурсия для мат. выражения
 */
 
 public class Solution {
+    public Solution() {
+        //don't delete
+    }
+
     public static void main(String[] args) {
 
         Solution solution = new Solution();
         solution.recursion("sin(2*(-5+1.5*4)+28)", 0); //expected output 0.5 6
-
-//        String s;
-//
-//        s = "(-2)^(-2)";
-//        System.out.print(s + " expected output 0.25 3 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "89-cos(180)^2";
-//        System.out.print(s + " expected output 88 3 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "sin(2*(-5+1.5*4)+28)";
-//        System.out.print(s + " expected output 0.5 6 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "tan(45)";
-//        System.out.print(s + " expected output 1 1 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "tan(-45)";
-//        System.out.print(s + " expected output -1 2 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "0.305";
-//        System.out.print(s + " expected output 0.3 0 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "0.3051";
-//        System.out.print(s + " expected output 0.31 0 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "(0.3051)";
-//        System.out.print(s + " expected output 0.31 0 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "1+(1+(1+1)*(1+1))*(1+1)+1";
-//        System.out.print(s + " expected output 12 8 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "tan(44+sin(89-cos(180)^2))";
-//        System.out.print(s + " expected output 1 6 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "-2+(-2+(-2)-2*(2+2))";
-//        System.out.print(s + " expected output -14 8 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "sin(80+(2+(1+1))*(1+1)+2)";
-//        System.out.print(s + " expected output 1 7 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "1+4/2/2+2^2+2*2-2^(2-1+1)";
-//        System.out.print(s + " expected output 6 11 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "2^10+2^(5+5)";
-//        System.out.print(s + " expected output 2048 4 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "1.01+(2.02-1+1/0.5*1.02)/0.1+0.25+41.1";
-//        System.out.print(s + " expected output 72.96 8 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "0.000025+0.000012";
-//        System.out.print(s + " expected output 0 1 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "-2-(-2-1-(-2)-(-2)-(-2-2-(-2)-2)-2-2)";
-//        System.out.print(s + " expected output -3 16 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "cos(3 + 19*3)";
-//        System.out.print(s + " expected output 0.5 3 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "2*(589+((2454*0.1548/0.01*(-2+9^2))+((25*123.12+45877*25)+25))-547)";
-//        System.out.print(s + " expected output 8302231.36 14 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "(-1 + (-2))";
-//        System.out.print(s + " expected output -3 3 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "-sin(2*(-5+1.5*4)+28)";
-//        System.out.print(s + " expected output -0.5 7 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "sin(100)-sin(100)";
-//        System.out.print(s + " expected output 0 3 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "-(-22+22*2)";
-//        System.out.print(s + " expected output -22 4 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "-2^(-2)";
-//        System.out.print(s + " expected output -0.25 3 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "-(-2^(-2))+2+(-(-2^(-2)))";
-//        System.out.print(s + " expected output 2.5 10 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "(-2)*(-2)";
-//        System.out.print(s + " expected output 4 3 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "(-2)/(-2)";
-//        System.out.print(s + " expected output 1 3 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "sin(-30)";
-//        System.out.print(s + " expected output -0.5 2 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "cos(-30)";
-//        System.out.print(s + " expected output 0.87 2 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "tan(-30)";
-//        System.out.print(s + " expected output -0.58 2 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "2+8*(9/4-1.5)^(1+1)";
-//        System.out.print(s + " expected output 6.5 6 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "0.005 ";
-//        System.out.print(s + " expected output 0.01 0 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "0.0049 ";
-//        System.out.print(s + " expected output 0 0 actually ");
-//        solution.recursion(s, 0);
-//
-//        s = "0+0.304";
-//        System.out.print(s + " expected output 0.3 1 actually ");
-//        solution.recursion(s, 0);
     }
 
     public void recursion(final String expression, int countOperation) {
 
-        Locale.setDefault(Locale.ENGLISH);
-
-        Pattern numberPattern = Pattern.compile("^(\\d+\\.?\\d*).*");
-        Pattern openBracketPattern = Pattern.compile("^\\(.*");
-        Pattern addPattern = Pattern.compile("^(\\+).*");
-        Pattern subPattern = Pattern.compile("^(\\-).*");
-        Pattern divPattern = Pattern.compile("^(/).*");
-        Pattern mulPattern = Pattern.compile("^(\\*).*");
-        Pattern powPattern = Pattern.compile("^(\\^).*");
-        Pattern sinPattern = Pattern.compile("^(sin\\().*");
-        Pattern cosPattern = Pattern.compile("^(cos\\().*");
-        Pattern tanPattern = Pattern.compile("^(tan\\().*");
-
-        boolean firstScan = countOperation == 0;
-
-        String tail = expression;
-
-        if (firstScan) {
-            tail = expression.replace(" ", "").toLowerCase();
-        }
-
-        ArrayList<String> tokens = new ArrayList<>();
-        ArrayList<Integer> priorities = new ArrayList<>();
-
-        while (tail.length() > 0) {
-            Matcher m;
-            m = numberPattern.matcher(tail);
-            if (m.find()) {
-                String piece = m.group(1);
-                tokens.add(piece);
-                tail = tail.substring(piece.length());
-                priorities.add(0);
-                continue;
-            }
-
-            m = openBracketPattern.matcher(tail);
-            if (m.find()) {
-                int end = findCloseBracket(tail, 0);
-                String piece = tail.substring(0, end);
-                tokens.add(piece);
-                tail = tail.substring(piece.length());
-                priorities.add(0);
-                continue;
-            }
-
-            m = addPattern.matcher(tail);
-            if (m.find()) {
-                String piece = m.group(1);
-                tokens.add(piece);
-                tail = tail.substring(piece.length());
-                priorities.add(4);
-                countOperation++;
-                continue;
-            }
-
-            m = subPattern.matcher(tail);
-            if (m.find()) {
-                String piece = m.group(1);
-                if (tokens.size() == 0) {
-                    tokens.add("0");
-                    priorities.add(0);
-                }
-                tokens.add(piece);
-                tail = tail.substring(piece.length());
-                priorities.add(4);
-                countOperation++;
-                continue;
-            }
-
-            m = divPattern.matcher(tail);
-            if (m.find()) {
-                String piece = m.group(1);
-                tokens.add(piece);
-                tail = tail.substring(piece.length());
-                priorities.add(3);
-                countOperation++;
-                continue;
-            }
-
-            m = mulPattern.matcher(tail);
-            if (m.find()) {
-                String piece = m.group(1);
-                tokens.add(piece);
-                tail = tail.substring(piece.length());
-                priorities.add(3);
-                countOperation++;
-                continue;
-            }
-
-            m = powPattern.matcher(tail);
-            if (m.find()) {
-                String piece = m.group(1);
-                tokens.add(piece);
-                tail = tail.substring(piece.length());
-                priorities.add(2);
-                countOperation++;
-                continue;
-            }
-
-            m = sinPattern.matcher(tail);
-            if (m.find()) {
-                String piece = m.group(1);
-                tokens.add(piece);
-                tail = tail.substring(piece.length() - 1);
-                priorities.add(1);
-                countOperation++;
-                continue;
-            }
-
-            m = cosPattern.matcher(tail);
-            if (m.find()) {
-                String piece = m.group(1);
-                tokens.add(piece);
-                tail = tail.substring(piece.length() - 1);
-                priorities.add(1);
-                countOperation++;
-                continue;
-            }
-
-            m = tanPattern.matcher(tail);
-            if (m.find()) {
-                String piece = m.group(1);
-                tokens.add(piece);
-                tail = tail.substring(piece.length() - 1);
-                priorities.add(1);
-                countOperation++;
-                continue;
-            }
-            throw new IllegalArgumentException(String.format("Can't parse expression '%s'", tail));
-        }
-
-        int minPriority = 0, maxPriority = 0;
-
-        for (int p : priorities) {
-            if (p < minPriority) minPriority = p;
-            if (p > maxPriority) maxPriority = p;
-        }
-
-        ArrayList<Integer> parents = new ArrayList<>();
-        for (int i = 0; i < tokens.size(); i++) parents.add(-1);
-        ArrayList<Double> results = new ArrayList<>();
-        for (int i = 0; i < tokens.size(); i++) results.add(0d);
-        int last = 0;
-        for (int i = minPriority; i <= maxPriority; i++) {
-            for (int j = 0; j < tokens.size(); j++) {
-
-                if (priorities.get(j) != i) continue;
-
-                String token = tokens.get(j);
-
-                if (numberPattern.matcher(token).matches()) {
-                    results.set(j, Double.parseDouble(token));
-                    last = j;
-                    continue;
-                }
-
-                if (openBracketPattern.matcher(token).matches()) {
-                    PrintStream oldOut = System.out;
-                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                    PrintStream stream = new PrintStream(outputStream);
-                    System.setOut(stream);
-                    recursion(token.substring(1, token.length() - 1), countOperation);
-                    System.setOut(oldOut);
-                    String resultString = outputStream.toString();
-                    String[] resultArray = resultString.trim().split(" ");
-                    results.set(j, Double.parseDouble(resultArray[0]));
-                    countOperation = Integer.parseInt(resultArray[1]);
-                    last = j;
-                    continue;
-                }
-
-                if (addPattern.matcher(token).matches()) {
-                    double left = results.get(findAndSetParent(j, j - 1, parents));
-                    double right = results.get(findAndSetParent(j, j + 1, parents));
-                    results.set(j, left + right);
-                    last = j;
-                    continue;
-                }
-
-                if (subPattern.matcher(token).matches()) {
-                    double left = results.get(findAndSetParent(j, j - 1, parents));
-                    double right = results.get(findAndSetParent(j, j + 1, parents));
-                    results.set(j, left - right);
-                    last = j;
-                    continue;
-                }
-
-                if (mulPattern.matcher(token).matches()) {
-                    double left = results.get(findAndSetParent(j, j - 1, parents));
-                    double right = results.get(findAndSetParent(j, j + 1, parents));
-                    results.set(j, left * right);
-                    last = j;
-                    continue;
-                }
-
-                if (divPattern.matcher(token).matches()) {
-                    double left = results.get(findAndSetParent(j, j - 1, parents));
-                    double right = results.get(findAndSetParent(j, j + 1, parents));
-                    results.set(j, left / right);
-                    last = j;
-                    continue;
-                }
-
-                if (powPattern.matcher(token).matches()) {
-                    double left = results.get(findAndSetParent(j, j - 1, parents));
-                    double right = results.get(findAndSetParent(j, j + 1, parents));
-                    results.set(j, Math.pow(left, right));
-                    last = j;
-                    continue;
-                }
-
-                if (sinPattern.matcher(token).matches()) {
-                    double right = results.get(j + 1);
-                    parents.set(j + 1, j);
-                    results.set(j, Math.sin(Math.toRadians(right)));
-                    last = j;
-                    continue;
-                }
-
-                if (cosPattern.matcher(token).matches()) {
-                    double right = results.get(j + 1);
-                    parents.set(j + 1, j);
-                    results.set(j, Math.cos(Math.toRadians(right)));
-                    last = j;
-                    continue;
-                }
-
-                if (tanPattern.matcher(token).matches()) {
-                    double right = results.get(j + 1);
-                    parents.set(j + 1, j);
-                    results.set(j, Math.tan(Math.toRadians(right)));
-                    last = j;
-                    continue;
+        // counting operations in separate place, later use this count
+        // tried to count with recursion method but too many invokings not connected with math operations
+        if (countOperation == 0) {
+            String tmp = expression.replaceAll("sin", "bin");
+            for (int i = 0; i < tmp.length(); i++) {
+                if ("*^+-tcb//".contains(String.valueOf(tmp.charAt(i)))) {
+                    countOperation++;
                 }
             }
         }
-        DecimalFormat df = firstScan ? new DecimalFormat("#.##") : new DecimalFormat("#.########");
-        System.out.format("%s %d\n", df.format(results.get(last)), countOperation);
-    }
 
-    private int findAndSetParent(int p, int i, ArrayList<Integer> parents) {
-        while (parents.get(i) != -1) i = parents.get(i);
-        parents.set(i, p);
-        return i;
-    }
+        // spaces before and after - to ensure that no outOfBoundException
+        String expressionTmp = " " + expression.replaceAll(" ", "") + " ";
 
-    private int findCloseBracket(String source, int from) {
-        int pos = from, deep = 0;
-        do {
-            if (source.charAt(pos) == '(') deep++;
-            if (source.charAt(pos) == ')') deep--;
-            pos++;
-        } while (deep > 0);
-        return pos;
-    }
+        // took pattern in someones' code
+        String pattern = "#.##";
+        DecimalFormat decimalFormat = new DecimalFormat(pattern);
+        DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols();
+        otherSymbols.setDecimalSeparator('.');
+        decimalFormat.setDecimalFormatSymbols(otherSymbols);
 
-    public Solution() {
-        //don't delete
+        int positionOfNextClosePar = 0;
+        double tmpNumber = 0;
+
+        // managing sinuses
+        for (int i = 0; i < expressionTmp.length(); i++) {
+            if ((expressionTmp.charAt(i) == 's') && (expressionTmp.charAt(i + 1) == 'i')) { //searching for "si"
+                try {
+                    //trying to parse parameter of trig func
+                    positionOfNextClosePar = expressionTmp.indexOf(")", i);
+                    tmpNumber = Double.parseDouble(expressionTmp.substring(i + 4, positionOfNextClosePar));
+
+                    //if the parameter is parsed, counting value and changing in expression for its' value
+                    tmpNumber = Math.toRadians(tmpNumber);
+                    tmpNumber = Math.sin(tmpNumber);
+
+                    // result can be <0 then it'll be in parences
+                    String strToReplace = tmpNumber >= 0 ? decimalFormat.format(tmpNumber) : "(" + decimalFormat.format(tmpNumber) + ")";
+                    expressionTmp = expressionTmp.substring(0, i) + strToReplace + expressionTmp.substring(positionOfNextClosePar + 1);
+
+                    // invoking method with new string, operations count + 1
+                    recursion(expressionTmp, countOperation);
+                    return;
+                } catch (Exception ignored) {
+//                    e.printStackTrace();
+                }
+            }
+        }
+
+        // managing cosinuses
+        for (int i = 0; i < expressionTmp.length(); i++) {
+            if ((expressionTmp.charAt(i) == 'c') && (expressionTmp.charAt(i + 1) == 'o')) { //searching for "co"
+                try {
+                    //trying to parse parameter of trig func
+                    positionOfNextClosePar = expressionTmp.indexOf(")", i);
+                    tmpNumber = Double.parseDouble(expressionTmp.substring(i + 4, positionOfNextClosePar));
+
+                    //if the parameter is parsed, counting value and changing in expression for its' value
+                    tmpNumber = Math.toRadians(tmpNumber);
+                    tmpNumber = Math.cos(tmpNumber);
+
+                    // result can be <0 then it'll be in parences
+                    String strToReplace = tmpNumber >= 0 ? decimalFormat.format(tmpNumber) : "(" + decimalFormat.format(tmpNumber) + ")";
+                    expressionTmp = expressionTmp.substring(0, i) + strToReplace + expressionTmp.substring(positionOfNextClosePar + 1);
+
+                    // invoking method with new string, operations count + 1
+                    recursion(expressionTmp, countOperation);
+                    return;
+                } catch (Exception e) {
+//                    e.printStackTrace();
+                }
+            }
+        }
+
+        // managing tang
+        for (int i = 0; i < expressionTmp.length(); i++) {
+            if ((expressionTmp.charAt(i) == 't') && (expressionTmp.charAt(i + 1) == 'a')) { //searching for "ta"
+                try {
+                    //trying to parse parameter of trig func
+                    positionOfNextClosePar = expressionTmp.indexOf(")", i);
+                    tmpNumber = Double.parseDouble(expressionTmp.substring(i + 4, positionOfNextClosePar));
+
+                    //if the parameter is parsed, counting value and changing in expression for its' value
+                    tmpNumber = Math.toRadians(tmpNumber);
+                    tmpNumber = Math.tan(tmpNumber);
+
+                    // result can be <0 then it'll be in parences
+                    String strToReplace = tmpNumber >= 0 ? decimalFormat.format(tmpNumber) : "(" + decimalFormat.format(tmpNumber) + ")";
+                    expressionTmp = expressionTmp.substring(0, i) + strToReplace + expressionTmp.substring(positionOfNextClosePar + 1);
+
+                    // invoking method with new string, operations count + 1
+                    recursion(expressionTmp, countOperation);
+                    return;
+                } catch (Exception e) {
+//                    e.printStackTrace();
+                }
+            }
+        }
+
+        // managing ^
+        String signs = "*+- tncs^()//";
+        for (int i = 0; i < expressionTmp.length(); i++) {
+
+            // it shouldn be like this - ( smth ) ^ (smth else) , we need to calc smth first
+            if ((expressionTmp.charAt(i) == '^') && (expressionTmp.charAt(i + 1) != '(') && (expressionTmp.charAt(i - 1) != ')')) {
+                try {
+
+                    // searching for nearest sings of other operations, parsing two dobles beetwing them and ^ sign
+                    int firstPos = 0, lastPos = expressionTmp.length() - 1;
+                    if (expressionTmp.charAt(i + 1) == '-') i = i + 1;
+                    for (int j = i + 1; j < expressionTmp.length(); j++) {
+                        if (signs.contains(String.valueOf(expressionTmp.charAt(j)))) {
+                            lastPos = j;
+                            break;
+                        }
+                    }
+                    if (expressionTmp.charAt(i) == '-') i = i - 1;
+                    for (int j = i - 1; j > 0; j--) {
+                        if (signs.contains(String.valueOf(expressionTmp.charAt(j)))) {
+                            firstPos = j;
+                            break;
+                        }
+                    }
+
+                    double num1, num2;
+                    num1 = Double.parseDouble(expressionTmp.substring(firstPos + 1, i));
+                    num2 = Double.parseDouble(expressionTmp.substring(i + 1, lastPos));
+                    tmpNumber = Math.pow(num1, num2);
+
+                    expressionTmp = expressionTmp.substring(0, firstPos + 1) + decimalFormat.format(tmpNumber) + expressionTmp.substring(lastPos);
+
+                    recursion(expressionTmp, countOperation);
+                    return;
+                } catch (Exception ignored) {
+//                    e.printStackTrace();
+                }
+            }
+        }
+
+        // managing * or /
+        signs = "*+- tncs()//";
+
+        for (int i = 0; i < expressionTmp.length(); i++) {
+            if ((expressionTmp.charAt(i) == '*') && (expressionTmp.charAt(i + 1) != '(') && (expressionTmp.charAt(i - 1) != ')')) {
+                try {
+                    int firstPos = 0, lastPos = expressionTmp.length() - 1;
+                    for (int j = i + 1; j < expressionTmp.length(); j++) {
+                        if (signs.contains(String.valueOf(expressionTmp.charAt(j)))) {
+                            lastPos = j;
+                            break;
+                        }
+                    }
+                    signs = "+- tncs()"; // before cant be * or / signs - wrong order
+                    for (int j = i - 1; j > 0; j--) {
+                        if (signs.contains(String.valueOf(expressionTmp.charAt(j)))) {
+                            firstPos = j;
+                            break;
+                        }
+                    }
+
+                    double num1, num2;
+                    num1 = Double.parseDouble(expressionTmp.substring(firstPos + 1, i));
+                    num2 = Double.parseDouble(expressionTmp.substring(i + 1, lastPos));
+                    tmpNumber = num1 * num2;
+                    expressionTmp = expressionTmp.substring(0, firstPos + 1) + decimalFormat.format(tmpNumber) + expressionTmp.substring(lastPos);
+
+                    recursion(expressionTmp, countOperation);
+                    return;
+                } catch (Exception ignored) {
+                }
+            }
+
+            if ((expressionTmp.charAt(i) == '/') && (expressionTmp.charAt(i + 1) != '(') && (expressionTmp.charAt(i - 1) != ')')) {
+                try {
+                    int firstPos = 0, lastPos = expressionTmp.length() - 1;
+                    for (int j = i + 1; j < expressionTmp.length(); j++) {
+                        if (signs.contains(String.valueOf(expressionTmp.charAt(j)))) {
+                            lastPos = j;
+                            break;
+                        }
+                    }
+                    signs = "+- tncs()"; // before cant be * or / signs - it means wrong order of operations
+                    for (int j = i - 1; j > 0; j--) {
+                        if (signs.contains(String.valueOf(expressionTmp.charAt(j)))) {
+                            firstPos = j;
+                            break;
+                        }
+                    }
+
+                    double num1, num2;
+                    num1 = Double.parseDouble(expressionTmp.substring(firstPos + 1, i));
+                    num2 = Double.parseDouble(expressionTmp.substring(i + 1, lastPos));
+                    tmpNumber = num1 / num2;
+                    expressionTmp = expressionTmp.substring(0, firstPos + 1) + decimalFormat.format(tmpNumber) + expressionTmp.substring(lastPos);
+
+                    recursion(expressionTmp, countOperation);
+                    return;
+                } catch (Exception ignored) {
+                }
+            }
+        }
+
+        // managing + or -
+        signs = "- tncs()+";
+        for (int i = 0; i < expressionTmp.length(); i++) {
+            if ((expressionTmp.charAt(i) == '+') && (expressionTmp.charAt(i + 1) != '(') && (expressionTmp.charAt(i - 1) != ')')) {
+                try {
+                    int firstPos = 0, lastPos = expressionTmp.length() - 1;
+                    for (int j = i + 1; j < expressionTmp.length(); j++) {
+                        if (signs.contains(String.valueOf(expressionTmp.charAt(j)))) {
+                            lastPos = j;
+                            break;
+                        }
+                    }
+                    signs = " tncs()";
+                    for (int j = i - 1; j > 0; j--) {
+                        if (expressionTmp.charAt(j) == '-' && (expressionTmp.charAt(j - 1) == '-')) {
+                            firstPos = j - 1;
+                            break;
+                        }
+                        if (signs.contains(String.valueOf(expressionTmp.charAt(j)))) {
+                            firstPos = j;
+                            break;
+                        }
+                    }
+
+                    double num1, num2;
+                    num1 = Double.parseDouble(expressionTmp.substring(firstPos + 1, i));
+                    num2 = Double.parseDouble(expressionTmp.substring(i + 1, lastPos));
+                    tmpNumber = num1 + num2;
+                    expressionTmp = expressionTmp.substring(0, firstPos + 1) + decimalFormat.format(tmpNumber) + expressionTmp.substring(lastPos);
+
+                    recursion(expressionTmp, countOperation);
+                    return;
+                } catch (Exception ignored) {
+                }
+            }
+
+            signs = "- tncs()+";
+            if ((expressionTmp.charAt(i) == '-') && (expressionTmp.charAt(i + 1) != '(') && (expressionTmp.charAt(i - 1) != ')')) {
+                try {
+                    int firstPos = 0, lastPos = expressionTmp.length() - 1;
+                    for (int j = i + 1; j < expressionTmp.length(); j++) {
+                        if (signs.contains(String.valueOf(expressionTmp.charAt(j)))) {
+                            lastPos = j;
+                            break;
+                        }
+                    }
+                    signs = " tncs()";
+                    for (int j = i - 1; j > 0; j--) {
+                        if (expressionTmp.charAt(j) == '-' && (expressionTmp.charAt(j - 1) == '-')) {
+                            firstPos = j - 1;
+                            break;
+                        }
+                        if (signs.contains(String.valueOf(expressionTmp.charAt(j)))) {
+                            firstPos = j;
+                            break;
+                        }
+                    }
+
+                    double num1, num2;
+                    num1 = Double.parseDouble(expressionTmp.substring(firstPos + 1, i));
+                    num2 = Double.parseDouble(expressionTmp.substring(i + 1, lastPos));
+                    tmpNumber = num1 - num2;
+                    expressionTmp = expressionTmp.substring(0, firstPos + 1) + decimalFormat.format(tmpNumber) + expressionTmp.substring(lastPos);
+
+                    recursion(expressionTmp, countOperation);
+                    return;
+                } catch (Exception ignored) {
+                }
+            }
+        }
+
+        // managing (1.0) - removing parenteces, but if number inside is < 0,
+        // making adjustments, looking on math sign before opening (
+        for (int i = 0; i < expressionTmp.length(); i++) {
+            if (expressionTmp.charAt(i) == '(') {
+                try {
+                    tmpNumber = Double.parseDouble(expressionTmp.substring(i + 1, expressionTmp.indexOf(')', i)));
+                    if (tmpNumber >= 0) {
+                        expressionTmp = expressionTmp.substring(0, i) + decimalFormat.format(tmpNumber) + expressionTmp.substring(expressionTmp.indexOf(')', i) + 1);
+                        recursion(expressionTmp, countOperation);
+                        return;
+                    } else {
+                        for (int j = i - 1; j >= 0; j--) {
+                            if (expressionTmp.charAt(j) == '^') {
+                                expressionTmp = expressionTmp.substring(0, i) + String.valueOf(tmpNumber) + expressionTmp.substring(expressionTmp.indexOf(')', i) + 1);
+                                recursion(expressionTmp, countOperation);
+                                return;
+                            }
+                            if (expressionTmp.charAt(j) == '+') {
+                                expressionTmp = expressionTmp.substring(0, j) + "-" + expressionTmp.substring(j + 1, i) + String.valueOf(-tmpNumber) + expressionTmp.substring(expressionTmp.indexOf(')', i) + 1);
+                                recursion(expressionTmp, countOperation);
+                                return;
+                            }
+                            if (expressionTmp.charAt(j) == '-') {
+                                expressionTmp = expressionTmp.substring(0, j) + "+" + expressionTmp.substring(j + 1, i) + String.valueOf(-tmpNumber) + expressionTmp.substring(expressionTmp.indexOf(')', i) + 1);
+                                recursion(expressionTmp, countOperation);
+                                return;
+                            }
+                            if (expressionTmp.charAt(j) == '(') {
+                                expressionTmp = expressionTmp.substring(0, j) + "(-" + expressionTmp.substring(j + 1, i) + String.valueOf(-tmpNumber) + expressionTmp.substring(expressionTmp.indexOf(')', i) + 1);
+                                recursion(expressionTmp, countOperation);
+                                return;
+                            }
+                            if (expressionTmp.charAt(j) == ' ') {
+                                expressionTmp = expressionTmp.substring(0, j) + "-" + expressionTmp.substring(j + 1, i) + String.valueOf(-tmpNumber) + expressionTmp.substring(expressionTmp.indexOf(')', i) + 1);
+                                recursion(expressionTmp, countOperation);
+                                return;
+                            }
+                        }
+                    }
+                    continue;
+                } catch (Exception e) {
+                    continue;
+                }
+            }
+        }
+
+        // finally printing the number
+        tmpNumber = Double.parseDouble(expressionTmp.trim());
+        System.out.println(decimalFormat.format(tmpNumber) + " " + countOperation);
     }
 }

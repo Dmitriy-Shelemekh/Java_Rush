@@ -8,6 +8,9 @@ public class Solution {
     private double param = Math.random();
     private StringBuilder sb = new StringBuilder();
 
+    public static void main(String[] args) {
+    }
+
     private void method0() {
         Double d = method3();
     }
@@ -44,8 +47,5 @@ public class Solution {
 
     String method7(double param2) {
         return "" + param2;
-    }
-
-    public static void main(String[] args) {
     }
 }

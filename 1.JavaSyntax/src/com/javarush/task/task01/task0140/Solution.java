@@ -12,6 +12,6 @@ public class Solution {
         //напишите тут ваш код
         Scanner scanner = new Scanner(System.in);
         a = scanner.nextInt();
-        System.out.println(a*a);
+        System.out.println(a * a);
     }
 }

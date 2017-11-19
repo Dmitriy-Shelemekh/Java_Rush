@@ -62,6 +62,7 @@ public class Solution {
 
     public static class AgathaChristieBook extends Book {
         String title;
+
         public AgathaChristieBook(String title) {
             super("Agatha Christie");
             this.title = title;

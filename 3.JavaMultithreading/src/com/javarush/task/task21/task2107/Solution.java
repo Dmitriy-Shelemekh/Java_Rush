@@ -8,6 +8,8 @@ import java.util.Map;
 */
 public class Solution implements Cloneable {
 
+    protected Map<String, User> users = new LinkedHashMap();
+
     public static void main(String[] args) {
         Solution solution = new Solution();
         solution.users.put("Hubert", new User(172, "Hubert"));
@@ -26,7 +28,15 @@ public class Solution implements Cloneable {
         }
     }
 
-    protected Map<String, User> users = new LinkedHashMap();
+    @Override
+    protected Solution clone() throws CloneNotSupportedException {
+        Solution solution = new Solution();
+        for (Map.Entry<String, User> pair : this.users.entrySet()) {
+            User user = pair.getValue().clone();
+            solution.users.put(pair.getKey(), user);
+        }
+        return solution;
+    }
 
     public static class User implements Cloneable {
         int age;
@@ -59,15 +69,5 @@ public class Solution implements Cloneable {
             result = 31 * result + name.hashCode();
             return result;
         }
-    }
-
-    @Override
-    protected Solution clone() throws CloneNotSupportedException {
-        Solution solution = new Solution();
-        for (Map.Entry<String, User> pair : this.users.entrySet()) {
-            User user = pair.getValue().clone();
-            solution.users.put(pair.getKey(), user);
-        }
-        return solution;
     }
 }

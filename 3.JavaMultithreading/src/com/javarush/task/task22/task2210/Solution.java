@@ -12,7 +12,8 @@ public class Solution {
             System.out.println(s);
         }
     }
-    public static String [] getTokens(String query, String delimiter) {
+
+    public static String[] getTokens(String query, String delimiter) {
         StringTokenizer st = new StringTokenizer(query, delimiter);
         String[] res = new String[st.countTokens()];
         for (int i = 0; i < res.length && st.hasMoreTokens(); i++) {

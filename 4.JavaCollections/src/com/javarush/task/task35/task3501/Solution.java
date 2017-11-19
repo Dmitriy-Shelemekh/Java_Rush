@@ -1,5 +1,6 @@
 package com.javarush.task.task35.task3501;
-/* 
+
+/*
 Вызов статического метода
 */
 public class Solution {

@@ -14,6 +14,10 @@ public class Solution {
         this.sound = sound;
     }
 
+    public static void main(String[] args) throws InterruptedException {
+        new Solution("Amigo", "beef", "knock").live();
+    }
+
     public void eat() {
         System.out.println(name + ": Mmmmm, " + food);
     }
@@ -44,9 +48,5 @@ public class Solution {
         };
         thread.start();
         thread.join();
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        new Solution("Amigo", "beef", "knock").live();
     }
 }

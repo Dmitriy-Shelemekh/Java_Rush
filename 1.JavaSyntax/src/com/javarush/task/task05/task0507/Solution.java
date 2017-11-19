@@ -24,7 +24,7 @@ public class Solution {
             summ += element;
         }
 
-        double avrg = (double) summ/list.size();
+        double avrg = (double) summ / list.size();
         System.out.println(avrg);
     }
 }

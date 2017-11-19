@@ -6,8 +6,7 @@ public class ThisUncaughtExceptionHandler implements Thread.UncaughtExceptionHan
         final String string = "%s : %s : %s";
         if (Solution.FIRST_THREAD_NAME.equals(t.getName())) {
             System.out.println(getFormattedStringForFirstThread(t, e, string));
-        } else
-        if (Solution.SECOND_THREAD_NAME.equals(t.getName())) {
+        } else if (Solution.SECOND_THREAD_NAME.equals(t.getName())) {
             System.out.println(getFormattedStringForSecondThread(t, e, string));
         } else {
             System.out.println(getFormattedStringForOtherThread(t, e, string));
@@ -23,7 +22,7 @@ public class ThisUncaughtExceptionHandler implements Thread.UncaughtExceptionHan
     }
 
     protected String getFormattedStringForFirstThread(Thread t, Throwable e, String string) {
-        return String.format(string,t.getName(), e.getClass().getSimpleName(), e.getCause());
+        return String.format(string, t.getName(), e.getClass().getSimpleName(), e.getCause());
     }
 }
 

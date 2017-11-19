@@ -41,14 +41,14 @@ public class Solution implements Serializable {
     public static class Singleton implements Serializable {
         private static Singleton ourInstance;
 
+        private Singleton() {
+        }
+
         public static Singleton getInstance() {
             if (ourInstance == null) {
                 ourInstance = new Singleton();
             }
             return ourInstance;
-        }
-
-        private Singleton() {
         }
 
         private Object readResolve() throws ObjectStreamException {

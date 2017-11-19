@@ -7,14 +7,14 @@ import java.util.Scanner;
 */
 
 public class Solution {
-    public static void main(String[] args) {
-
-    }
-
     public static Planet thePlanet;
 
     static {
         readKeyFromConsoleAndInitPlanet();
+    }
+
+    public static void main(String[] args) {
+
     }
 
     //add static block here - добавьте статический блок тут

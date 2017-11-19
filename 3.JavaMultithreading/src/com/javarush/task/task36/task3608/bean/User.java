@@ -1,11 +1,10 @@
 package com.javarush.task.task36.task3608.bean;
 
 public class User implements Cloneable {
-    private String name;
-    private final long id;
-    private int level;
-
     public static final User NULL_USER = new User();
+    private final long id;
+    private String name;
+    private int level;
 
     public User(String name, long id, int level) {
         this.name = name;

@@ -26,7 +26,7 @@ public class Solution {
     public static void print(byte[] bytes) {
         for (byte b : bytes) {
             //Byte to binary format
-            System.out.print(Integer.toBinaryString((b & 0xFF) + 0x100).substring(1)+" ");
+            System.out.print(Integer.toBinaryString((b & 0xFF) + 0x100).substring(1) + " ");
         }
         System.out.println();
     }

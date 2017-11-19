@@ -37,14 +37,6 @@ public class Ball extends BaseObject {
         return direction;
     }
 
-    public double getDx() {
-        return dx;
-    }
-
-    public double getDy() {
-        return dy;
-    }
-
     /**
      * Устанавливаем новое направление движения.
      * Тут же вычисляем и новый вектор.
@@ -56,6 +48,14 @@ public class Ball extends BaseObject {
         double angel = Math.toRadians(direction);
         dx = Math.cos(angel) * speed;
         dy = -Math.sin(angel) * speed;
+    }
+
+    public double getDx() {
+        return dx;
+    }
+
+    public double getDy() {
+        return dy;
     }
 
     /**

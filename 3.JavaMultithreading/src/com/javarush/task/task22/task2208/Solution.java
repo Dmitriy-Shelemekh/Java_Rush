@@ -9,12 +9,12 @@ import java.util.Map;
 public class Solution {
     public static void main(String[] args) {
         Map<String, String> map = new LinkedHashMap<>();
-        map.put("name","Ivanov");
-        map.put("country","Ukraine");
-        map.put("city","Kiev");
-        map.put("age",null);
-        map.put("name1","Ivanov");
-        map.put("name2","Ivanov");
+        map.put("name", "Ivanov");
+        map.put("country", "Ukraine");
+        map.put("city", "Kiev");
+        map.put("age", null);
+        map.put("name1", "Ivanov");
+        map.put("name2", "Ivanov");
 
         System.out.println(getQuery(map));
     }

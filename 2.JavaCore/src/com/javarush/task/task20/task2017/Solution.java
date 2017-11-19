@@ -9,6 +9,9 @@ import java.io.Serializable;
 Десериализация
 */
 public class Solution {
+    public static void main(String[] args) {
+    }
+
     public A getOriginalObject(ObjectInputStream objectStream) {
         A a = null;
         try {
@@ -36,8 +39,5 @@ public class Solution {
         public B() {
             System.out.println("inside B");
         }
-    }
-
-    public static void main(String[] args) {
     }
 }

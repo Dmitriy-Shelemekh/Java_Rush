@@ -30,18 +30,18 @@ public class Solution {
 
     public static class Violin implements MusicalInstrument {
 
+        private String owner;
+
+        public Violin(String owner) {
+            this.owner = owner;
+        }
+
         public void run() {
             Date start = startPlaying();
             sleepNSeconds(1);
             Date end = stopPlaying();
 
             System.out.println("Playing " + (end.getTime() - start.getTime()) + " ms");
-        }
-
-        private String owner;
-
-        public Violin(String owner) {
-            this.owner = owner;
         }
 
         public Date startPlaying() {

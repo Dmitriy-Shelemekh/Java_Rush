@@ -12,10 +12,9 @@ import java.rmi.server.UnicastRemoteObject;
 RMI-2
 */
 public class Solution {
-    public static Registry registry;
     public static final String BINDING_NAME1 = "server.cat";
     public static final String BINDING_NAME2 = "server.dog";
-
+    public static Registry registry;
     //pretend we start rmi client as CLIENT_THREAD thread
     public static Thread CLIENT_THREAD = new Thread(new Runnable() {
         @Override

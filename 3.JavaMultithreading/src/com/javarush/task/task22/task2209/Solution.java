@@ -14,8 +14,7 @@ import java.util.Collections;
 public class Solution {
     public static void main(String[] args) {
         try (BufferedReader rcon = new BufferedReader(new InputStreamReader(System.in));
-             BufferedReader fileIn = new BufferedReader(new FileReader(rcon.readLine())))
-        {
+             BufferedReader fileIn = new BufferedReader(new FileReader(rcon.readLine()))) {
             StringBuilder sb = new StringBuilder();
             while (fileIn.ready()) {
                 sb.append(fileIn.readLine());
@@ -31,21 +30,21 @@ public class Solution {
     public static StringBuilder getLine(String... words) {
         StringBuilder result = new StringBuilder();
         if (words == null || words.length == 0) return result;
-        if (words.length==1 || words[0].equals("")) return result.append(words[0]);
+        if (words.length == 1 || words[0].equals("")) return result.append(words[0]);
 
         ArrayList<String> wordsList = new ArrayList<>();
 
         wordsList.addAll(Arrays.asList(words));
-        while (wordsList.remove("")){
+        while (wordsList.remove("")) {
             wordsList.remove("");
         }
         while (isYes(wordsList)) {
             Collections.shuffle(wordsList);
         }
-        for (String word: wordsList){
+        for (String word : wordsList) {
             result.append(word).append(" ");
         }
-        result.deleteCharAt(result.length()-1);
+        result.deleteCharAt(result.length() - 1);
         return result;
     }
 

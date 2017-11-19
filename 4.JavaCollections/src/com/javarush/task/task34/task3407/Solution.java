@@ -11,9 +11,6 @@ import java.util.List;
 public class Solution {
     public static Helper helper = new Helper();
 
-    public static class Monkey {
-    }
-
     public static void main(String args[]) throws InterruptedException {
         helper.startTime();
         List<PhantomReference<Monkey>> list = helper.getFilledList();
@@ -28,6 +25,9 @@ public class Solution {
         helper.checkListWithReferences(list, "after");
 
         helper.finish();
+    }
+
+    public static class Monkey {
     }
 
     public static class Helper {
@@ -78,9 +78,9 @@ public class Solution {
             //список призрачных ссылок
             ArrayList<PhantomReference<Monkey>> list = new ArrayList<PhantomReference<Monkey>>();
             //создаем 200 объектов и добавляем их в список через призрачные ссылки
-            for ( int i = 0; i < 200; i++) {
+            for (int i = 0; i < 200; i++) {
                 Monkey monkey = new Monkey();
-                list.add(new PhantomReference (monkey, queue));
+                list.add(new PhantomReference(monkey, queue));
             }
             return list;
         }

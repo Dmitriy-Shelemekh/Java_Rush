@@ -18,10 +18,9 @@ public class Solution {
         List<Movie> list = new ArrayList<>();
         while (true) {
             input = bufferedReader.readLine();
-            if (input.equals("soapOpera") || input.equals("cartoon") || input.equals("thriller")){
+            if (input.equals("soapOpera") || input.equals("cartoon") || input.equals("thriller")) {
                 list.add(MovieFactory.getMovie(input));
-            }
-            else{
+            } else {
                 MovieFactory.getMovie(input);
                 break;
             }

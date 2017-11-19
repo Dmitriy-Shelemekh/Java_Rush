@@ -9,6 +9,9 @@ import java.util.List;
 Как сериализовать?
 */
 public class Solution {
+    public static void main(String[] args) {
+    }
+
     public static class Human implements Serializable {
         public String name;
         public List<Asset> assets = new ArrayList<>();
@@ -22,8 +25,5 @@ public class Solution {
                 this.assets.addAll(Arrays.asList(assets));
             }
         }
-    }
-
-    public static void main(String[] args) {
     }
 }
