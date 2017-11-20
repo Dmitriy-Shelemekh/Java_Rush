@@ -1,5 +1,6 @@
 package com.javarush.task.task29.task2909.human;
 
+<<<<<<< Updated upstream
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,6 +16,23 @@ public class Human implements Alive {
     protected String name;
     protected int[] size;
     private int id;
+=======
+public class Human {
+    public static int nextId = 0;
+    private int id;
+    protected int age;
+    protected String name;
+    protected int course;
+
+    protected int[] size;
+
+    protected boolean isSoldier;
+
+    public static final int FIRST = 1;
+    public static final int SECOND = 2;
+    public static final int THIRD = 3;
+    public static final int FOURTH = 4;
+>>>>>>> Stashed changes
     private int bloodGroup;
     private List<Human> children = new ArrayList<>();
 
@@ -23,17 +41,24 @@ public class Human implements Alive {
         this.age = age;
     }
 
+<<<<<<< Updated upstream
     public Human(boolean isSoldier) {
         this.id = nextId;
         nextId++;
+=======
+    public void setBloodGroup(int code) {
+        bloodGroup = code;
+>>>>>>> Stashed changes
     }
 
     public int getBloodGroup() {
         return bloodGroup;
     }
 
-    public void setBloodGroup(int code) {
-        bloodGroup = code;
+    public Human(boolean isSoldier) {
+        this.isSoldier = isSoldier;
+        this.id = nextId;
+        nextId++;
     }
 
     public int getAge() {

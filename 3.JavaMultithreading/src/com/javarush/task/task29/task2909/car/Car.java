@@ -6,10 +6,13 @@ public class Car {
     static public final int TRUCK = 0;
     static public final int SEDAN = 1;
     static public final int CABRIOLET = 2;
+
+    double fuel;
+
     public double summerFuelConsumption;
     public double winterFuelConsumption;
     public double winterWarmingUp;
-    double fuel;
+
     private int type;
 
     private boolean driverAvailable;

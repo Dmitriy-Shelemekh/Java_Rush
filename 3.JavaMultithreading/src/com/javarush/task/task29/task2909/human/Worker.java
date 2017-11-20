@@ -1,8 +1,15 @@
 package com.javarush.task.task29.task2909.human;
 
+<<<<<<< Updated upstream
 public class Worker extends Human{
     private double salary;
     private String company;
+=======
+public class Worker {
+    private Human human;
+    private double salary;
+    public String company;
+>>>>>>> Stashed changes
 
     public Worker(String name, int age)
     {
