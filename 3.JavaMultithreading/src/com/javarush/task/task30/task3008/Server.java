@@ -3,13 +3,18 @@ package com.javarush.task.task30.task3008;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Dmitry Shelemekh on 21.11.2017.
  */
 public class Server {
-    public static void main(String[] args) {
 
+    // ключ -имя клиента, а значение - соединение с ним
+    private static Map<String, Connection> connectionMap = new ConcurrentHashMap<>();
+
+    public static void main(String[] args) {
         ConsoleHelper.writeMessage("Введите порт сервера: ");
         int serverPort = ConsoleHelper.readInt();
 
@@ -27,6 +32,25 @@ public class Server {
         } catch (IOException e) {
 
         }
+    }
+
+
+    /**
+     * отправка сообщения для всех
+     **/
+    public static void sendBroadcastMessage(Message message) {
+
+        try {
+
+            for (Connection connection : connectionMap.values()) {
+                connection.send(message);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            ConsoleHelper.writeMessage("Сообщение не отправлено");
+        }
+
     }
 
 
