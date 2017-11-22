@@ -15,7 +15,7 @@ public class Archiver {
         ConsoleHelper.writeMessage("Введите путь к архивируемому файлу: ");
         zipFileManager.createZip(Paths.get(ConsoleHelper.readString()));
 
-        ExitCommand exitCommand = new ExitCommand();
-        exitCommand.execute();
+//        ExitCommand exitCommand = new ExitCommand();
+//        exitCommand.execute();
     }
 }
