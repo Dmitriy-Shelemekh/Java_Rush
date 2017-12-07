@@ -1,8 +1,11 @@
 package com.javarush.task.task32.task3209;
 
+import javax.swing.text.BadLocationException;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 import java.io.File;
+import java.io.IOException;
+import java.io.StringReader;
 
 /**
  * Created by Dmitry Shelemekh on 06.12.2017.
@@ -35,7 +38,19 @@ public class Controller {
         view.update();
     }
 
-    public void exit(){
+    public void setPlainText(String text) {
+        resetDocument();
+
+        StringReader stringReader = new StringReader(text);
+
+        try {
+            new HTMLEditorKit().read(stringReader,document,0);
+        } catch (Exception e){
+            ExceptionHandler.log(e);
+        }
+    }
+
+    public void exit() {
         System.exit(0);
     }
 
