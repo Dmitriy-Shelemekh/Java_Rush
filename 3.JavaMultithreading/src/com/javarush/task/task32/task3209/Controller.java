@@ -6,6 +6,7 @@ import java.io.File;
 /**
  * Created by Dmitry Shelemekh on 06.12.2017.
  */
+
 public class Controller {
 
     private View view;
@@ -32,4 +33,7 @@ public class Controller {
         controller.init();
     }
 
+    public HTMLDocument getDocument() {
+        return document;
+    }
 }
