@@ -3,7 +3,6 @@ package com.javarush.task.task32.task3209;
 import com.javarush.task.task32.task3209.listeners.FrameListener;
 import com.javarush.task.task32.task3209.listeners.TabbedPaneChangeListener;
 import com.javarush.task.task32.task3209.listeners.UndoListener;
-
 import javax.swing.*;
 import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
@@ -47,7 +46,19 @@ public class View extends JFrame implements ActionListener {
     }
 
     public void selectedTabChanged() {
-
+        //Метод должен проверить, какая вкладка сейчас оказалась выбранной
+        //Если выбрана вкладка с индексом 0 (html вкладка)
+        if (tabbedPane.getSelectedIndex() == 0) {
+            //значит нам нужно получить текст из plainTextPane и установить его в контроллер с помощью метода setPlainText
+            controller.setPlainText(plainTextPane.getText());
+        }
+        //сли выбрана вкладка с индексом 1 (вкладка с html текстом)
+        else {
+            //необходимо получить текст у контроллера с помощью метода getPlainText() и установить его в панель plainTextPane
+            plainTextPane.setText(controller.getPlainText());
+        }
+        //Сбросить правки
+        resetUndo();
     }
 
     public void initGui() {
