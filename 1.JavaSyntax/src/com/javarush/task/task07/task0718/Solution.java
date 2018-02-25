@@ -21,8 +21,11 @@ public class Solution {
         int size = list.get(0).length();
 
         for (int i = 1; i < 10; i++) {
-            if (list.get(i).length() >= size) size = list.get(i).length();
-            else System.out.println(i);
+            if (list.get(i).length() >= size) {
+                size = list.get(i).length();
+            } else {
+                System.out.println(i);
+            }
         }
     }
 }
