@@ -10,8 +10,8 @@ import java.io.InputStreamReader;
 
 public class Solution {
 
-    public static int even;
-    public static int odd;
+    private static int even;
+    private static int odd;
 
     public static void main(String[] args) throws IOException {
         //напишите тут ваш код

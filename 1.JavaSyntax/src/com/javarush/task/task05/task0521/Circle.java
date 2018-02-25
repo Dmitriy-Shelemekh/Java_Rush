@@ -6,14 +6,18 @@ package com.javarush.task.task05.task0521;
 
 public class Circle {
 
-    public double x;
-    public double y;
-    public double radius;
+    private double x;
+    private double y;
+    private double radius;
 
     public Circle(double x, double y, double radius) {
         this.x = x;
         this.y = y;
         this.radius = radius;
+    }
+
+    public void Print() {
+        System.out.println(x + " " + y + " " + radius);
     }
 
     public Circle(double x, double y) {
@@ -27,8 +31,8 @@ public class Circle {
 
     public static void main(String[] args) {
         Circle circle = new Circle();
-        System.out.println(circle.x + " " + circle.y + " " + circle.radius);
+        circle.Print();
         Circle anotherCircle = new Circle(10, 5);
-        System.out.println(anotherCircle.x + " " + anotherCircle.y + " " + anotherCircle.radius);
+        anotherCircle.Print();
     }
 }

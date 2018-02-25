@@ -5,9 +5,9 @@ package com.javarush.task.task05.task0522;
 */
 
 public class Circle {
-    public double x;
-    public double y;
-    public double radius;
+    private double x;
+    private double y;
+    private double radius;
 
     //напишите тут ваш код
     public Circle() {

@@ -13,8 +13,8 @@ public class Solution {
 
     static class Person {
         //напишите тут ваш код
-        String name;
-        int age;
+        private String name;
+        private int age;
 
         public void initialize(String name, int age) {
             this.name = name;
