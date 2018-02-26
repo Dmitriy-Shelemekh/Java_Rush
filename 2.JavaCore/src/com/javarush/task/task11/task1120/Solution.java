@@ -9,26 +9,20 @@ public class Solution {
     }
 
     public class House extends Assets{
-
     }
 
     public class Cat extends Animal{
-
     }
 
     public class Car extends Assets{
-
     }
 
     public class Dog extends Animal{
-
     }
 
     public class Animal {
-
     }
 
     public class Assets {
-
     }
 }

@@ -29,13 +29,18 @@ public class Solution {
     public static void removeItemFromMap(HashMap<String, Integer> map) {
         //напишите тут ваш код
         Iterator iterator = map.entrySet().iterator();
-        {
-        }
+
         while (iterator.hasNext()) {
             Map.Entry pair = (Map.Entry) iterator.next();
             if ((int) pair.getValue() < 500)
                 iterator.remove();
         }
+
+//        for (Map.Entry<String, Integer> pair : map.entrySet()) {
+//            if (pair.getValue() < 500) {
+//                map.remove(pair.getKey());
+//            }
+//        }
     }
 
     public static void main(String[] args) {

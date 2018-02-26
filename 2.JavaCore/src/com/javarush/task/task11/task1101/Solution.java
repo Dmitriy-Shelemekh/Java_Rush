@@ -9,10 +9,8 @@ public class Solution {
     }
 
     public class Horse {
-
     }
 
     public class Pegas extends  Horse{
-
     }
 }

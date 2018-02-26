@@ -30,7 +30,6 @@ public class Solution {
         return new Pair<Integer, Integer>(min, max);
     }
 
-
     public static class Pair<X, Y> {
         public X x;
         public Y y;

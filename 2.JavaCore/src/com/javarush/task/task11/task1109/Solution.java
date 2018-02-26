@@ -23,11 +23,11 @@ public class Solution {
         }
 
         private String getName() {
-            return name;
+            return this.name;
         }
 
         private int getSpeed() {
-            return speed;
+            return this.speed;
         }
 
         public boolean isDogNear(Dog dog) {
@@ -45,11 +45,11 @@ public class Solution {
         }
 
         private String getName() {
-            return name;
+            return this.name;
         }
 
         private int getSpeed() {
-            return speed;
+            return this.speed;
         }
 
         public boolean isCatNear(Cat cat) {
