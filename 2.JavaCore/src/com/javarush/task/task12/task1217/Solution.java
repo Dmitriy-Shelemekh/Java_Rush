@@ -9,7 +9,6 @@ public class Solution {
 
     }
 
-    //add interfaces here - добавь интерфейсы тут
     public interface Fly {
         void fly();
     }
@@ -21,6 +20,4 @@ public class Solution {
     public interface Swim {
         void swim();
     }
-
-
 }

@@ -6,7 +6,6 @@ package com.javarush.task.task12.task1219;
 
 public class Solution {
     public static void main(String[] args) {
-
     }
 
     public interface Fly {
@@ -21,17 +20,14 @@ public class Solution {
         public void swim();
     }
 
-
     public class Human implements Run, Swim {
 
         @Override
         public void run() {
-
         }
 
         @Override
         public void swim() {
-
         }
     }
 
@@ -39,17 +35,14 @@ public class Solution {
 
         @Override
         public void fly() {
-
         }
 
         @Override
         public void run() {
-
         }
 
         @Override
         public void swim() {
-
         }
     }
 
@@ -57,12 +50,10 @@ public class Solution {
 
         @Override
         public void run() {
-
         }
 
         @Override
         public void swim() {
-
         }
     }
 
@@ -70,12 +61,10 @@ public class Solution {
 
         @Override
         public void fly() {
-
         }
 
         @Override
         public void run() {
-
         }
     }
 }

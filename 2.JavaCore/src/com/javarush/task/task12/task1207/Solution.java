@@ -16,8 +16,5 @@ public class Solution {
 
     public static void print(Integer a) {
         System.out.println(a);
-
     }
-
-    //Напишите тут ваши методы
 }

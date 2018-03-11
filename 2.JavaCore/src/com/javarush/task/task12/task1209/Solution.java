@@ -6,7 +6,6 @@ package com.javarush.task.task12.task1209;
 
 public class Solution {
     public static void main(String[] args) {
-
     }
 
     public static int min(int a, int b) {
@@ -20,5 +19,4 @@ public class Solution {
     public static double min(double a, double b){
         return (a < b) ? a : b;
     }
-    //Напишите тут ваши методы
 }

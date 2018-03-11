@@ -9,12 +9,8 @@ public class Solution {
 
     }
 
-    //add an interface here - добавь интерфейс тут
-
     public interface Fly {
         void goFly();
-
         void goInEarth();
     }
-
 }

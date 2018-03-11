@@ -6,7 +6,6 @@ package com.javarush.task.task12.task1215;
 
 public class Solution {
     public static void main(String[] args) {
-
     }
 
     public static abstract class Pet {
@@ -40,5 +39,4 @@ public class Solution {
             return null;
         }
     }
-
 }
